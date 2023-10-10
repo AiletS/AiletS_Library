@@ -35,11 +35,16 @@ layout: document
 title: data_structure/Coordinate_Compression.hpp
 ---
 
+---
+title: data_structure/Coordinate_Compression.hpp
+documentation_of: data_structure/Coordinate_Compression.hpp
+---
+
 座標圧縮をしてくれるライブラリです。
 
 # コンストラクタ
-|CC<T> cc|
-|:-|
+> CC<T> cc
+
 
 - 型 `T` (指定しない時、`long long` になります)
 
@@ -55,8 +60,8 @@ title: data_structure/Coordinate_Compression.hpp
 
 # add
 
-|void cc.add(T x)|
-|:-|
+> void cc.add(T x)
+
 
 配列 `v` に `x` を追加します。
 
@@ -67,8 +72,8 @@ title: data_structure/Coordinate_Compression.hpp
 
 # init
 
-|void cc.init()|
-|:-|
+> void cc.init()
+
 
 現在の配列 `v` に対して、座標圧縮を行います。
 
@@ -78,8 +83,8 @@ title: data_structure/Coordinate_Compression.hpp
 
 # operator()
 
-|int cc(T x)|
-|:-|
+> int cc(T x)
+
 
 `v` が座標圧縮されていない状態なら `cc.init()`を最初に行います。
 
@@ -91,8 +96,8 @@ title: data_structure/Coordinate_Compression.hpp
 
 # operator[]
 
-|T cc[int i]|
-|:-|
+> T cc[int i]
+
 
 `v` が座標圧縮されていない状態なら `cc.init()`を最初に行います。
 
@@ -100,7 +105,9 @@ title: data_structure/Coordinate_Compression.hpp
 
 #### 制約
 
-- $0\leq i < |v|$ ($|v|$ は配列 `v` のサイズ)
+$|v|$ を配列 `v` のサイズとして
+
+- $0\leq i<|v|$
 
 #### 計算量
 
@@ -108,8 +115,8 @@ title: data_structure/Coordinate_Compression.hpp
 
 # size
 
-|int cc.size()|
-|:-|
+> int cc.size()
+
 
 `v` が座標圧縮されていない状態なら `cc.init()`を最初に行います。
 
@@ -118,3 +125,4 @@ title: data_structure/Coordinate_Compression.hpp
 #### 計算量
 
 - $\mathcal{O}(1)$
+
