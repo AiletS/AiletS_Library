@@ -32,8 +32,19 @@ data:
   verifiedWith: []
 documentation_of: data_structure/Coordinate_Compression.hpp
 layout: document
-redirect_from:
-- /library/data_structure/Coordinate_Compression.hpp
-- /library/data_structure/Coordinate_Compression.hpp.html
 title: data_structure/Coordinate_Compression.hpp
 ---
+
+座標圧縮をしてくれるライブラリです．
+
+`CC<T> cc;` で宣言します．Tはクラス名です．基本は long long になっています．
+
+`cc.add(T x)` T 型の変数 x を座標圧縮対象に入れます．計算量は $\mathcal{O}(1)$
+
+`cc.init()` 座標圧縮を行います．計算量は配列のサイズを $N$ として $\mathcal{O}(N\log N)$
+
+`cc(T x)` T 型の変数 x が座標圧縮した時何番目にあるかを返します．計算量は配列のサイズを $N$ として $\mathcal{O}(\log N)$．もし，座標圧縮されてなかった状態なら `cc.init()` を実行するため，計算量が追加にかかります．
+
+`cc[i]` 座標圧縮した時 i 番目にある値を返します．計算量は $\mathcal{O}(1)$ もし，座標圧縮されてなかった状態なら `cc.init()` を実行するため，計算量が追加にかかります．
+
+`cc.size()` 座標圧縮した時の配列の長さを返します．つまり，重複要素を除いたときのサイズを返します．計算量は $\mathcal{O}(1)$ もし，座標圧縮されてなかった状態なら `cc.init()` を実行するため，計算量が追加にかかります．
