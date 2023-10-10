@@ -37,9 +37,6 @@ title: data_structure/Coordinate_Compression.hpp
 
 座標圧縮をしてくれるライブラリです。
 
-<details><summary>ライブラリの説明</summary>
-<markdown>
-
 # コンストラクタ
 ```
  CC<T> cc
@@ -138,12 +135,8 @@ int cc.size()
 
 - $\mathcal{O}(1)$
 
-</markdown>
-</details>
 
-<details><summary>使用例</summary>
-
-```c++
+```cpp
 int main()
 {
     CC cc; // 宣言
@@ -165,5 +158,3 @@ int main()
     cout << cc.size(); // 4
 }
 ```　
-</details>
-
