@@ -137,6 +137,7 @@ int cc.size()
 
 <details>
 <summary>使用例</summary>
+<pre>
 
 ```cpp
 int main()
@@ -158,5 +159,7 @@ int main()
     cout << cc.size(); // 4
 }
 ```
+
+</pre>
 </details>
 
