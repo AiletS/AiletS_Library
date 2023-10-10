@@ -39,6 +39,8 @@ title: data_structure/Coordinate_Compression.hpp
 
 <details><summary>ライブラリの説明</summary>
 
+<ul>
+
 # コンストラクタ
 ```
  CC<T> cc
@@ -136,6 +138,8 @@ int cc.size()
 #### 計算量
 
 - $\mathcal{O}(1)$
+
+</ul>
 
 </details>
 
