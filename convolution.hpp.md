@@ -5,7 +5,6 @@ data:
   _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
   attributes:
     links: []
   bundledCode: "#line 2 \"convolution.hpp\"\ntemplate<long long MOD>\nlong long mod_pow(long\
