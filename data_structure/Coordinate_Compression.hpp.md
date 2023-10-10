@@ -50,11 +50,11 @@ title: data_structure/Coordinate_Compression.hpp
 - 座標圧縮の状態を持つ bool 変数 `in` が作られます。
 
 
-#### 計算量
+##### 計算量
 
 - $\mathcal{O}(1)$
 
-## add
+# add
 
 ```
 void cc.add(T x)
@@ -63,12 +63,12 @@ void cc.add(T x)
 
 配列 `v` に `x` を追加します。
 
-#### 計算量
+##### 計算量
 
 - $\mathcal{O}(1)$
 
 
-## init
+# init
 
 ```
 void cc.init()
@@ -77,13 +77,13 @@ void cc.init()
 
 現在の配列 `v` に対して、座標圧縮を行います。
 
-#### 計算量
+##### 計算量
 
 $N$ を `v` のサイズとして、
 
 - $\mathcal{O}(N\log N)$
 
-## operator()
+# operator()
 
 ```
 int cc(T x)
@@ -94,13 +94,13 @@ int cc(T x)
 
 `x` が `v` の何番目にあるかを返します。
 
-#### 計算量
+##### 計算量
 
 $N$ を `v` のサイズとして、
 
 - $\mathcal{O}(\log N)$
 
-## operator[]
+# operator[]
 
 ```
 T cc[int i]
@@ -110,17 +110,17 @@ T cc[int i]
 
 `v` の `i` 番目の要素を返します。
 
-#### 制約
+##### 制約
 
 $N$ を `v` のサイズとして、
 
 - $0\leq i<N$
 
-#### 計算量
+##### 計算量
 
 - $\mathcal{O}(1)$
 
-## size
+# size
 
 ```
 int cc.size()
@@ -131,7 +131,7 @@ int cc.size()
 
 `v` のサイズを返します。
 
-#### 計算量
+##### 計算量
 
 - $\mathcal{O}(1)$
 
@@ -139,7 +139,6 @@ int cc.size()
 <summary>使用例</summary>
 <pre>
 
-```cpp
 int main()
 {
     CC cc; // 宣言
@@ -158,7 +157,6 @@ int main()
     cout << cc[1]; // 3
     cout << cc.size(); // 4
 }
-```
 
 </pre>
 </details>
