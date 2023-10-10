@@ -35,16 +35,12 @@ layout: document
 title: data_structure/Coordinate_Compression.hpp
 ---
 
----
-title: data_structure/Coordinate_Compression.hpp
-documentation_of: data_structure/Coordinate_Compression.hpp
----
-
 座標圧縮をしてくれるライブラリです。
 
 # コンストラクタ
-> CC<T> cc
-
+```
+ CC<T> cc
+```
 
 - 型 `T` (指定しない時、`long long` になります)
 
@@ -58,9 +54,11 @@ documentation_of: data_structure/Coordinate_Compression.hpp
 
 - $\mathcal{O}(1)$
 
-# add
+## add
 
-> void cc.add(T x)
+```
+void cc.add(T x)
+```
 
 
 配列 `v` に `x` を追加します。
@@ -70,9 +68,11 @@ documentation_of: data_structure/Coordinate_Compression.hpp
 - $\mathcal{O}(1)$
 
 
-# init
+## init
 
-> void cc.init()
+```
+void cc.init()
+```
 
 
 現在の配列 `v` に対して、座標圧縮を行います。
@@ -81,9 +81,11 @@ documentation_of: data_structure/Coordinate_Compression.hpp
 
 - $\mathcal{O}(N\log N)$
 
-# operator()
+## operator()
 
-> int cc(T x)
+```
+int cc(T x)
+```
 
 
 `v` が座標圧縮されていない状態なら `cc.init()`を最初に行います。
@@ -94,9 +96,11 @@ documentation_of: data_structure/Coordinate_Compression.hpp
 
 - $\mathcal{O}(\log N)$
 
-# operator[]
+## operator[]
 
-> T cc[int i]
+```
+T cc[int i]
+```
 
 
 `v` が座標圧縮されていない状態なら `cc.init()`を最初に行います。
@@ -113,9 +117,11 @@ $|v|$ を配列 `v` のサイズとして
 
 - $\mathcal{O}(1)$
 
-# size
+## size
 
-> int cc.size()
+```
+int cc.size()
+```
 
 
 `v` が座標圧縮されていない状態なら `cc.init()`を最初に行います。
