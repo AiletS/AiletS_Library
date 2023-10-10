@@ -135,6 +135,8 @@ int cc.size()
 
 - $\mathcal{O}(1)$
 
+<details>
+<summary>使用例</summary>
 
 ```cpp
 int main()
@@ -145,16 +147,16 @@ int main()
     cc.add(4);
     cc.add(4);
     // cc.init() してもしなくてもいい
-
     // 現在 v = {2, 4, 8}
     cout << cc(4); // 1
     cout << cc[1]; // 4
     cout << cc.size(); // 3
-
     cc.add(3);
     // 現在 v = {2, 3, 4, 8}
     cout << cc(4); // 2
     cout << cc[1]; // 3
     cout << cc.size(); // 4
 }
-```　
+```
+</details>
+
