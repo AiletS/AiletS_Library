@@ -40,17 +40,25 @@ data:
   - name: graph
     pages:
     - icon: ''
+      path: graph/dist_bfs.hpp
+      title: graph/dist_bfs.hpp
+    - icon: ''
+      path: graph/dist_dijkstra.hpp
+      title: graph/dist_dijkstra.hpp
+    - icon: ''
       path: graph/graph_base.hpp
       title: graph/graph_base.hpp
     - icon: ''
-      path: graph/graph_dist_bfs.hpp
-      title: graph/graph_dist_bfs.hpp
+      path: graph/is_bipartite.hpp
+      title: graph/is_bipartite.hpp
     - icon: ''
-      path: graph/graph_dist_dijkstra.hpp
-      title: graph/graph_dist_dijkstra.hpp
+      path: graph/scc.hpp
+      title: graph/scc.hpp
+  - name: math
+    pages:
     - icon: ''
-      path: graph/graph_scc.hpp
-      title: graph/graph_scc.hpp
+      path: math/asum.hpp
+      title: math/asum.hpp
   - name: monoid
     pages:
     - icon: ''
@@ -72,6 +80,9 @@ data:
     - icon: ''
       path: string/rle.hpp
       title: string/rle.hpp
+    - icon: ''
+      path: string/zalgo.hpp
+      title: string/zalgo.hpp
   verificationCategories: []
 layout: toppage
 ---

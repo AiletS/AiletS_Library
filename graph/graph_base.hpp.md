@@ -3,14 +3,17 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy:
   - icon: ':warning:'
-    path: graph/graph_dist_bfs.hpp
-    title: graph/graph_dist_bfs.hpp
+    path: graph/dist_bfs.hpp
+    title: graph/dist_bfs.hpp
   - icon: ':warning:'
-    path: graph/graph_dist_dijkstra.hpp
-    title: graph/graph_dist_dijkstra.hpp
+    path: graph/dist_dijkstra.hpp
+    title: graph/dist_dijkstra.hpp
   - icon: ':warning:'
-    path: graph/graph_scc.hpp
-    title: graph/graph_scc.hpp
+    path: graph/is_bipartite.hpp
+    title: graph/is_bipartite.hpp
+  - icon: ':warning:'
+    path: graph/scc.hpp
+    title: graph/scc.hpp
   _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: hpp
@@ -62,9 +65,10 @@ data:
   isVerificationFile: false
   path: graph/graph_base.hpp
   requiredBy:
-  - graph/graph_dist_dijkstra.hpp
-  - graph/graph_scc.hpp
-  - graph/graph_dist_bfs.hpp
+  - graph/is_bipartite.hpp
+  - graph/dist_dijkstra.hpp
+  - graph/scc.hpp
+  - graph/dist_bfs.hpp
   timestamp: '2023-09-16 21:22:43+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
