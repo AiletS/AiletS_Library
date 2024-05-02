@@ -1,6 +1,6 @@
 name: verify
 
-on: push -f
+on: push
 
 jobs:
   verify:
