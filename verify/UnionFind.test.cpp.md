@@ -81,7 +81,7 @@ data:
   isVerificationFile: true
   path: verify/UnionFind.test.cpp
   requiredBy: []
-  timestamp: '2024-05-03 01:19:32+09:00'
+  timestamp: '2024-05-03 01:16:09+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/UnionFind.test.cpp

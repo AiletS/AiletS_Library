@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: graph/graph_base.hpp
     title: graph/graph_base.hpp
   _extendedRequiredBy: []
@@ -80,7 +80,7 @@ data:
   isVerificationFile: false
   path: graph/dist_dijkstra.hpp
   requiredBy: []
-  timestamp: '2024-05-03 01:19:32+09:00'
+  timestamp: '2024-05-03 01:16:09+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: graph/dist_dijkstra.hpp

@@ -11,13 +11,16 @@ data:
   - icon: ':warning:'
     path: graph/is_bipartite.hpp
     title: graph/is_bipartite.hpp
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: graph/scc.hpp
     title: graph/scc.hpp
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: verify/scc.test.cpp
+    title: verify/scc.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"graph/graph_base.hpp\"\n\ntemplate <typename T>\nstruct\
@@ -89,9 +92,10 @@ data:
   - graph/scc.hpp
   - graph/dist_bfs.hpp
   - graph/dist_dijkstra.hpp
-  timestamp: '2024-05-03 01:19:32+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  timestamp: '2024-05-03 01:16:09+09:00'
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - verify/scc.test.cpp
 documentation_of: graph/graph_base.hpp
 layout: document
 redirect_from:

@@ -71,7 +71,7 @@ data:
   - graph/tree/EulerTour.hpp
   - graph/tree/CompressTree.hpp
   - graph/tree/lca.hpp
-  timestamp: '2024-05-03 01:19:32+09:00'
+  timestamp: '2024-05-03 01:16:09+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - verify/lca.test.cpp

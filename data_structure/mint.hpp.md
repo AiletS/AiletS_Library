@@ -94,7 +94,7 @@ data:
   path: data_structure/mint.hpp
   requiredBy:
   - math/convolution.hpp
-  timestamp: '2024-05-03 01:19:32+09:00'
+  timestamp: '2024-05-03 01:16:09+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: data_structure/mint.hpp

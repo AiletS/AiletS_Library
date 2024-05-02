@@ -57,13 +57,13 @@ data:
     - icon: ':warning:'
       path: graph/dist_dijkstra.hpp
       title: graph/dist_dijkstra.hpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: graph/graph_base.hpp
       title: graph/graph_base.hpp
     - icon: ':warning:'
       path: graph/is_bipartite.hpp
       title: graph/is_bipartite.hpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: graph/scc.hpp
       title: graph/scc.hpp
   - name: graph/tree
@@ -127,5 +127,8 @@ data:
     - icon: ':heavy_check_mark:'
       path: verify/lca.test.cpp
       title: verify/lca.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: verify/scc.test.cpp
+      title: verify/scc.test.cpp
 layout: toppage
 ---

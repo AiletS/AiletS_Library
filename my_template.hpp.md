@@ -12,6 +12,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: verify/lca.test.cpp
     title: verify/lca.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/scc.test.cpp
+    title: verify/scc.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -158,11 +161,12 @@ data:
   path: my_template.hpp
   requiredBy:
   - base.cpp
-  timestamp: '2024-05-03 01:19:32+09:00'
+  timestamp: '2024-05-03 01:16:09+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - verify/lca.test.cpp
   - verify/UnionFind.test.cpp
+  - verify/scc.test.cpp
 documentation_of: my_template.hpp
 layout: document
 redirect_from:
