@@ -132,3 +132,8 @@ data:
       title: verify/scc.test.cpp
 layout: toppage
 ---
+自由にコピペしてください。
+
+ほしいライブラリから Bundle ボタンを押して全部コピペすることで使えます
+
+バグあったらすみません
