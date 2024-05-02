@@ -1,4 +1,5 @@
 {
-"verify/UnionFind.test.cpp": "2024-05-03 01:26:20 +0900",
-"verify/lca.test.cpp": "2024-05-03 01:26:20 +0900"
+"verify/UnionFind.test.cpp": "2024-05-03 04:49:34 +0900",
+"verify/lca.test.cpp": "2024-05-03 04:49:34 +0900",
+"verify/scc.test.cpp": "2024-05-03 04:49:34 +0900"
 }
