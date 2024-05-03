@@ -4,8 +4,8 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: verify/segtree.test.cpp
-    title: verify/segtree.test.cpp
+    path: verify/library_checker/Static_RMQ.test.cpp
+    title: verify/library_checker/Static_RMQ.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -57,7 +57,7 @@ data:
   timestamp: '2024-05-03 01:16:09+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - verify/segtree.test.cpp
+  - verify/library_checker/Static_RMQ.test.cpp
 documentation_of: data_structure/segtree.hpp
 layout: document
 redirect_from:

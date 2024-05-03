@@ -13,8 +13,8 @@ data:
     title: graph/tree/lca.hpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: verify/lca.test.cpp
-    title: verify/lca.test.cpp
+    path: verify/library_checker/Lowest_Common_Ancestor.test.cpp
+    title: verify/library_checker/Lowest_Common_Ancestor.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -74,7 +74,7 @@ data:
   timestamp: '2024-05-03 01:16:09+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - verify/lca.test.cpp
+  - verify/library_checker/Lowest_Common_Ancestor.test.cpp
 documentation_of: graph/tree/tree_base.hpp
 layout: document
 redirect_from:

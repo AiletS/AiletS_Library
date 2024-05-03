@@ -8,22 +8,53 @@ data:
     path: graph/tree/EulerTour.hpp
     title: graph/tree/EulerTour.hpp
   - icon: ':heavy_check_mark:'
+    path: graph/tree/lca.hpp
+    title: graph/tree/lca.hpp
+  - icon: ':heavy_check_mark:'
     path: graph/tree/tree_base.hpp
     title: graph/tree/tree_base.hpp
-  _extendedRequiredBy:
-  - icon: ':warning:'
-    path: graph/tree/CompressTree.hpp
-    title: graph/tree/CompressTree.hpp
-  _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
-    path: verify/library_checker/Lowest_Common_Ancestor.test.cpp
-    title: verify/library_checker/Lowest_Common_Ancestor.test.cpp
+  - icon: ':question:'
+    path: my_template.hpp
+    title: my_template.hpp
+  _extendedRequiredBy: []
+  _extendedVerifiedWith: []
   _isVerificationFailed: false
-  _pathExtension: hpp
+  _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    links: []
-  bundledCode: "#line 2 \"graph/tree/lca.hpp\"\n\n#line 2 \"graph/tree/tree_base.hpp\"\
+    '*NOT_SPECIAL_COMMENTS*': ''
+    PROBLEM: https://judge.yosupo.jp/problem/lca
+    links:
+    - https://judge.yosupo.jp/problem/lca
+  bundledCode: "#line 1 \"verify/library_checker/Lowest_Common_Ancestor.test.cpp\"\
+    \n#define PROBLEM \"https://judge.yosupo.jp/problem/lca\"\n#line 2 \"my_template.hpp\"\
+    \n#pragma GCC optimize(\"O3\")\n#include <bits/stdc++.h>\nusing namespace std;\n\
+    using ll = long long; using ld = long double;\nusing P = pair<int, int>; using\
+    \ Pll = pair<ll, ll>;\nusing vi = vector<int>; using vvi = vector<vector<int>>;\
+    \ using vvvi = vector<vvi>;\nusing vl = vector<ll>; using vvl = vector<vector<ll>>;\
+    \ using vvvl = vector<vvl>;\nusing vld = vector<ld>; using vvld = vector<vector<vld>>;\
+    \ using vvvld = vector<vvld>;\nusing vp = vector<P>; using vpll = vector<Pll>;\
+    \ using vvp = vector<vector<P>>;\nusing vs = vector<string>;\ntemplate <typename\
+    \ T> using pq = priority_queue<T, vector<T>, greater<T>>;\n#define rep(i, s, n)\
+    \ for (long long i = (s); i < (long long)(n); i++)\n#define drep(i, s, n) for\
+    \ (long long i = (s); i >= (long long)(n); i--)\ntemplate <typename T> bool chmax(T&\
+    \ a, const T& b) { if (a < b) { a = b; return true; } return false; }\ntemplate\
+    \ <typename T> bool chmin(T& a, const T& b) { if (a > b) { a = b; return true;\
+    \ } return false; }\ntemplate <typename T = long long> T floor(T x, T m) { return\
+    \ (x - ((x % m + m) % m)) / m; }\ntemplate <typename T = long long> T ceil(T x,\
+    \ T m) { return floor(x + m - 1, m); }\n\ntemplate <class T> constexpr T infty\
+    \ = 0;\ntemplate<> constexpr int infty<int> = 1001001001;\ntemplate<> constexpr\
+    \ long long infty<long long> = 9e18;\ntemplate<> constexpr double infty<double>\
+    \ = infty<long long>;\ntemplate<> constexpr long double infty<long double> = infty<long\
+    \ long>;\n\ntemplate<class T> istream& operator >> (istream& i, vector<T>& v)\
+    \ { for(T& p : v) cin >> p; return i; }\ntemplate<class T> ostream& operator <<\
+    \ (ostream& o, vector<T>& v) { for(T& p : v) cout << p << \" \"; return o; }\n\
+    template<class T> istream& operator >> (istream& i, vector<vector<T>>& v) { for(vector<T>&\
+    \ p : v) cin >> p; return i; }\ntemplate<class T> ostream& operator << (ostream&\
+    \ o, vector<vector<T>>& v) { for(vector<T>& p : v) cout << p << '\\n'; return\
+    \ o; }\ntemplate<class T> void operator -- (vector<T>& v, int) { for(T& p : v)\
+    \ p--; }\ntemplate<class T> void operator ++ (vector<T>& v, int) { for(T& p :\
+    \ v) p++; }\n#line 2 \"graph/tree/lca.hpp\"\n\n#line 2 \"graph/tree/tree_base.hpp\"\
     \n\ntemplate <typename T>\nstruct Edge\n{\n    int from, to;\n    T cost;\n  \
     \  int id;\n    Edge(int from, int to, T cost, int id) : from(from), to(to), cost(cost),\
     \ id(id) {}\n};\n\ntemplate <typename T = long long, bool directed = false>\n\
@@ -81,35 +112,34 @@ data:
     \ v) = EulerTour(_g);\n        sp = SparseTable<Monoid_LCA<pair<int, int>>>(v);\n\
     \    }\n\n    int get(int x, int y)\n    {\n        int l = in[x], r = in[y];\n\
     \        if(l > r) swap(l, r);\n        return sp.get(l, r + 1).second;\n    }\n\
-    };\n"
-  code: "#pragma once\n\n#include \"graph/tree/tree_base.hpp\"\n#include \"graph/tree/EulerTour.hpp\"\
-    \n#include \"data_structure/SparseTable.hpp\"\n\ntemplate <class _S>\nstruct Monoid_LCA\n\
-    {\n    using TYPE = _S;\n    static TYPE op(TYPE& a, TYPE& b)\n    {\n       \
-    \ if(a.first < b.first) return a;\n        else return b;\n    };\n    static\
-    \ TYPE e() { return make_pair(infty<int>, -1); };\n};\n\ntemplate <class TREE>\n\
-    struct LCA\n{\n    TREE& g;\n    int n;\n    vector<int> in, out;\n    vector<pair<int,\
-    \ int>> v;\n    SparseTable<Monoid_LCA<pair<int, int>>> sp;\n\n    LCA() {}\n\
-    \    LCA(TREE& _g) : n(_g.n), g(_g), in(n), out(n) \n    {\n        tie(in, out,\
-    \ v) = EulerTour(_g);\n        sp = SparseTable<Monoid_LCA<pair<int, int>>>(v);\n\
-    \    }\n\n    int get(int x, int y)\n    {\n        int l = in[x], r = in[y];\n\
-    \        if(l > r) swap(l, r);\n        return sp.get(l, r + 1).second;\n    }\n\
-    };"
+    };\n#line 4 \"verify/library_checker/Lowest_Common_Ancestor.test.cpp\"\n\nvoid\
+    \ solve()\n{\n    int n, q; cin >> n >> q;\n    Tree g(n); g.mkg_ancestor(false,\
+    \ 0);\n    LCA lca(g);\n    while(q--)\n    {\n        int u, v; cin >> u >> v;\n\
+    \        cout << lca.get(u, v) << '\\n';\n    }\n}\n\nint main()\n{\n    ios::sync_with_stdio(false);\n\
+    \    std::cin.tie(nullptr);\n    int t = 1;\n    //cin >> t;\n    while (t--)\
+    \ solve();\n}\n"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/lca\"\n#include \"my_template.hpp\"\
+    \n#include \"graph/tree/lca.hpp\"\n\nvoid solve()\n{\n    int n, q; cin >> n >>\
+    \ q;\n    Tree g(n); g.mkg_ancestor(false, 0);\n    LCA lca(g);\n    while(q--)\n\
+    \    {\n        int u, v; cin >> u >> v;\n        cout << lca.get(u, v) << '\\\
+    n';\n    }\n}\n\nint main()\n{\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n\
+    \    int t = 1;\n    //cin >> t;\n    while (t--) solve();\n}"
   dependsOn:
+  - my_template.hpp
+  - graph/tree/lca.hpp
   - graph/tree/tree_base.hpp
   - graph/tree/EulerTour.hpp
   - data_structure/SparseTable.hpp
-  isVerificationFile: false
-  path: graph/tree/lca.hpp
-  requiredBy:
-  - graph/tree/CompressTree.hpp
-  timestamp: '2024-05-03 01:16:09+09:00'
-  verificationStatus: LIBRARY_ALL_AC
-  verifiedWith:
-  - verify/library_checker/Lowest_Common_Ancestor.test.cpp
-documentation_of: graph/tree/lca.hpp
+  isVerificationFile: true
+  path: verify/library_checker/Lowest_Common_Ancestor.test.cpp
+  requiredBy: []
+  timestamp: '2024-05-03 18:59:10+09:00'
+  verificationStatus: TEST_ACCEPTED
+  verifiedWith: []
+documentation_of: verify/library_checker/Lowest_Common_Ancestor.test.cpp
 layout: document
 redirect_from:
-- /library/graph/tree/lca.hpp
-- /library/graph/tree/lca.hpp.html
-title: graph/tree/lca.hpp
+- /verify/verify/library_checker/Lowest_Common_Ancestor.test.cpp
+- /verify/verify/library_checker/Lowest_Common_Ancestor.test.cpp.html
+title: verify/library_checker/Lowest_Common_Ancestor.test.cpp
 ---

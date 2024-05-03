@@ -1,14 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: graph/graph_base.hpp
     title: graph/graph_base.hpp
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _extendedVerifiedWith:
+  - icon: ':x:'
+    path: verify/test_atcoder/math_and_algorithm_ao.test.cpp
+    title: verify/test_atcoder/math_and_algorithm_ao.test.cpp
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "#line 2 \"graph/is_bipartite.hpp\"\n\n#line 2 \"graph/graph_base.hpp\"\
@@ -65,8 +68,9 @@ data:
   path: graph/is_bipartite.hpp
   requiredBy: []
   timestamp: '2024-05-03 01:16:09+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_WA
+  verifiedWith:
+  - verify/test_atcoder/math_and_algorithm_ao.test.cpp
 documentation_of: graph/is_bipartite.hpp
 layout: document
 redirect_from:

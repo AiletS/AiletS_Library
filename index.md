@@ -6,7 +6,7 @@ data:
     - icon: ':warning:'
       path: base.cpp
       title: base.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: my_template.hpp
       title: my_template.hpp
   - name: data_structure
@@ -57,10 +57,10 @@ data:
     - icon: ':warning:'
       path: graph/dist_dijkstra.hpp
       title: graph/dist_dijkstra.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: graph/graph_base.hpp
       title: graph/graph_base.hpp
-    - icon: ':warning:'
+    - icon: ':x:'
       path: graph/is_bipartite.hpp
       title: graph/is_bipartite.hpp
     - icon: ':heavy_check_mark:'
@@ -122,23 +122,28 @@ data:
       path: string/zalgo.hpp
       title: string/zalgo.hpp
   verificationCategories:
-  - name: verify
+  - name: verify/library_checker
     pages:
     - icon: ':heavy_check_mark:'
-      path: verify/FenwickTree.test.cpp
-      title: verify/FenwickTree.test.cpp
+      path: verify/library_checker/Lowest_Common_Ancestor.test.cpp
+      title: verify/library_checker/Lowest_Common_Ancestor.test.cpp
     - icon: ':heavy_check_mark:'
-      path: verify/UnionFind.test.cpp
-      title: verify/UnionFind.test.cpp
+      path: verify/library_checker/Static_RMQ.test.cpp
+      title: verify/library_checker/Static_RMQ.test.cpp
     - icon: ':heavy_check_mark:'
-      path: verify/lca.test.cpp
-      title: verify/lca.test.cpp
+      path: verify/library_checker/Static_Range_Sum.test.cpp
+      title: verify/library_checker/Static_Range_Sum.test.cpp
     - icon: ':heavy_check_mark:'
-      path: verify/scc.test.cpp
-      title: verify/scc.test.cpp
+      path: verify/library_checker/Strongly_Connected_Components.test.cpp
+      title: verify/library_checker/Strongly_Connected_Components.test.cpp
     - icon: ':heavy_check_mark:'
-      path: verify/segtree.test.cpp
-      title: verify/segtree.test.cpp
+      path: verify/library_checker/Unionfind.test.cpp
+      title: verify/library_checker/Unionfind.test.cpp
+  - name: verify/test_atcoder
+    pages:
+    - icon: ':x:'
+      path: verify/test_atcoder/math_and_algorithm_ao.test.cpp
+      title: verify/test_atcoder/math_and_algorithm_ao.test.cpp
 layout: toppage
 ---
 自由にコピペしてください。

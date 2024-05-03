@@ -7,23 +7,26 @@ data:
     title: base.cpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: verify/FenwickTree.test.cpp
-    title: verify/FenwickTree.test.cpp
+    path: verify/library_checker/Lowest_Common_Ancestor.test.cpp
+    title: verify/library_checker/Lowest_Common_Ancestor.test.cpp
   - icon: ':heavy_check_mark:'
-    path: verify/UnionFind.test.cpp
-    title: verify/UnionFind.test.cpp
+    path: verify/library_checker/Static_RMQ.test.cpp
+    title: verify/library_checker/Static_RMQ.test.cpp
   - icon: ':heavy_check_mark:'
-    path: verify/lca.test.cpp
-    title: verify/lca.test.cpp
+    path: verify/library_checker/Static_Range_Sum.test.cpp
+    title: verify/library_checker/Static_Range_Sum.test.cpp
   - icon: ':heavy_check_mark:'
-    path: verify/scc.test.cpp
-    title: verify/scc.test.cpp
+    path: verify/library_checker/Strongly_Connected_Components.test.cpp
+    title: verify/library_checker/Strongly_Connected_Components.test.cpp
   - icon: ':heavy_check_mark:'
-    path: verify/segtree.test.cpp
-    title: verify/segtree.test.cpp
-  _isVerificationFailed: false
+    path: verify/library_checker/Unionfind.test.cpp
+    title: verify/library_checker/Unionfind.test.cpp
+  - icon: ':x:'
+    path: verify/test_atcoder/math_and_algorithm_ao.test.cpp
+    title: verify/test_atcoder/math_and_algorithm_ao.test.cpp
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: '#line 2 "my_template.hpp"
@@ -168,13 +171,14 @@ data:
   requiredBy:
   - base.cpp
   timestamp: '2024-05-03 01:16:09+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - verify/lca.test.cpp
-  - verify/UnionFind.test.cpp
-  - verify/scc.test.cpp
-  - verify/segtree.test.cpp
-  - verify/FenwickTree.test.cpp
+  - verify/test_atcoder/math_and_algorithm_ao.test.cpp
+  - verify/library_checker/Unionfind.test.cpp
+  - verify/library_checker/Static_Range_Sum.test.cpp
+  - verify/library_checker/Lowest_Common_Ancestor.test.cpp
+  - verify/library_checker/Static_RMQ.test.cpp
+  - verify/library_checker/Strongly_Connected_Components.test.cpp
 documentation_of: my_template.hpp
 layout: document
 redirect_from:

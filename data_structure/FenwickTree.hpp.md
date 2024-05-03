@@ -4,8 +4,8 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: verify/FenwickTree.test.cpp
-    title: verify/FenwickTree.test.cpp
+    path: verify/library_checker/Static_Range_Sum.test.cpp
+    title: verify/library_checker/Static_Range_Sum.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -43,7 +43,7 @@ data:
   timestamp: '2024-05-03 16:37:18+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - verify/FenwickTree.test.cpp
+  - verify/library_checker/Static_Range_Sum.test.cpp
 documentation_of: data_structure/FenwickTree.hpp
 layout: document
 redirect_from:

@@ -1,14 +1,14 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: graph/graph_base.hpp
     title: graph/graph_base.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: verify/scc.test.cpp
-    title: verify/scc.test.cpp
+    path: verify/library_checker/Strongly_Connected_Components.test.cpp
+    title: verify/library_checker/Strongly_Connected_Components.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -84,7 +84,7 @@ data:
   timestamp: '2024-05-03 01:16:09+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - verify/scc.test.cpp
+  - verify/library_checker/Strongly_Connected_Components.test.cpp
 documentation_of: graph/scc.hpp
 layout: document
 redirect_from:

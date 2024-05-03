@@ -8,7 +8,7 @@ data:
   - icon: ':warning:'
     path: graph/dist_dijkstra.hpp
     title: graph/dist_dijkstra.hpp
-  - icon: ':warning:'
+  - icon: ':x:'
     path: graph/is_bipartite.hpp
     title: graph/is_bipartite.hpp
   - icon: ':heavy_check_mark:'
@@ -16,11 +16,14 @@ data:
     title: graph/scc.hpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: verify/scc.test.cpp
-    title: verify/scc.test.cpp
-  _isVerificationFailed: false
+    path: verify/library_checker/Strongly_Connected_Components.test.cpp
+    title: verify/library_checker/Strongly_Connected_Components.test.cpp
+  - icon: ':x:'
+    path: verify/test_atcoder/math_and_algorithm_ao.test.cpp
+    title: verify/test_atcoder/math_and_algorithm_ao.test.cpp
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"graph/graph_base.hpp\"\n\ntemplate <typename T>\nstruct\
@@ -93,9 +96,10 @@ data:
   - graph/dist_bfs.hpp
   - graph/dist_dijkstra.hpp
   timestamp: '2024-05-03 01:16:09+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - verify/scc.test.cpp
+  - verify/test_atcoder/math_and_algorithm_ao.test.cpp
+  - verify/library_checker/Strongly_Connected_Components.test.cpp
 documentation_of: graph/graph_base.hpp
 layout: document
 redirect_from:
