@@ -41,7 +41,7 @@ data:
     - icon: ':warning:'
       path: data_structure/rational.hpp
       title: data_structure/rational.hpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: data_structure/segtree.hpp
       title: data_structure/segtree.hpp
   - name: flow
@@ -105,6 +105,9 @@ data:
     - icon: ':warning:'
       path: monoid/monoid_arbi.hpp
       title: monoid/monoid_arbi.hpp
+    - icon: ':heavy_check_mark:'
+      path: monoid/monoid_min.hpp
+      title: monoid/monoid_min.hpp
   - name: operatormonoid
     pages:
     - icon: ':warning:'
@@ -133,6 +136,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: verify/scc.test.cpp
       title: verify/scc.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: verify/segtree.test.cpp
+      title: verify/segtree.test.cpp
 layout: toppage
 ---
 自由にコピペしてください。
