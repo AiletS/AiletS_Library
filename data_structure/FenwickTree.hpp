@@ -12,6 +12,10 @@ class FenwickTree
   public:
 	FenwickTree() : n(0) {}
 	FenwickTree(int _n) : n(_n), data(_n, 0) {}
+	FenwickTree(vector<T>& v) : n(v.size()), data(n, 0)
+	{
+		for(int i = 0; i < n; i++) add(i, v[i]);
+	}
 
 	void add(int p, T x) // add x at p
 	{
