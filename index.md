@@ -14,7 +14,7 @@ data:
     - icon: ':warning:'
       path: data_structure/Coordinate_Compression.hpp
       title: data_structure/Coordinate_Compression.hpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: data_structure/FenwickTree.hpp
       title: data_structure/FenwickTree.hpp
     - icon: ':heavy_check_mark:'
@@ -121,6 +121,9 @@ data:
   verificationCategories:
   - name: verify
     pages:
+    - icon: ':heavy_check_mark:'
+      path: verify/FenwickTree.test.cpp
+      title: verify/FenwickTree.test.cpp
     - icon: ':heavy_check_mark:'
       path: verify/UnionFind.test.cpp
       title: verify/UnionFind.test.cpp

@@ -7,6 +7,9 @@ data:
     title: base.cpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
+    path: verify/FenwickTree.test.cpp
+    title: verify/FenwickTree.test.cpp
+  - icon: ':heavy_check_mark:'
     path: verify/UnionFind.test.cpp
     title: verify/UnionFind.test.cpp
   - icon: ':heavy_check_mark:'
@@ -167,6 +170,7 @@ data:
   - verify/lca.test.cpp
   - verify/UnionFind.test.cpp
   - verify/scc.test.cpp
+  - verify/FenwickTree.test.cpp
 documentation_of: my_template.hpp
 layout: document
 redirect_from:
