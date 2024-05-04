@@ -9,7 +9,7 @@ void solve()
     rep(i, 0, q)
     {
         ll a, b, d; cin >> a >> b >> d; a--, b--;
-        if(r.unite(a, b, d)) cout << i + 1 << " ";
+        if(r.unite(a, b, d)) cout << i + 1 << (i == q - 1 ? (char)NULL : ' ');
     }
 }
 
