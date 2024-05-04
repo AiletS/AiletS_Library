@@ -23,7 +23,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: data_structure/UnionFind.hpp
       title: data_structure/UnionFind.hpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: data_structure/Weighted_UnionFind.hpp
       title: data_structure/Weighted_UnionFind.hpp
     - icon: ':warning:'
@@ -144,7 +144,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: verify/test_atcoder/abc327_d.test.cpp
       title: verify/test_atcoder/abc327_d.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: verify/test_atcoder/abc328_f.test.cpp
       title: verify/test_atcoder/abc328_f.test.cpp
     - icon: ':x:'

@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: data_structure/Weighted_UnionFind.hpp
     title: data_structure/Weighted_UnionFind.hpp
   - icon: ':question:'
@@ -9,9 +9,9 @@ data:
     title: my_template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://atcoder.jp/contests/abc328/tasks/abc328_f
@@ -77,25 +77,27 @@ data:
     \n\nvoid solve()\n{\n    ll n, q; cin >> n >> q;\n    Weighted_UnionFind<ll> r(n);\n\
     \    vi ans;\n    rep(i, 0, q)\n    {\n        ll a, b, d; cin >> a >> b >> d;\
     \ a--, b--;\n        if(r.unite(a, b, d)) ans.push_back(i + 1);\n    }\n    int\
-    \ m = ans.size();\n    rep(i, 0, m) cout << ans[i] << (i == m - 1 ? '\\n' : '\
-    \ ');\n}\n\nint main()\n{\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n\
-    \    int t = 1;\n    //cin >> t;\n    while (t--) solve();\n}\n"
+    \ m = ans.size();\n    if(m == 0) cout << '\\n';\n    rep(i, 0, m) cout << ans[i]\
+    \ << (i == m - 1 ? '\\n' : ' ');\n}\n\nint main()\n{\n    ios::sync_with_stdio(false);\n\
+    \    std::cin.tie(nullptr);\n    int t = 1;\n    //cin >> t;\n    while (t--)\
+    \ solve();\n}\n"
   code: "#define PROBLEM \"https://atcoder.jp/contests/abc328/tasks/abc328_f\"\n#include\
     \ \"my_template.hpp\"\n#include \"data_structure/Weighted_UnionFind.hpp\"\n\n\
     void solve()\n{\n    ll n, q; cin >> n >> q;\n    Weighted_UnionFind<ll> r(n);\n\
     \    vi ans;\n    rep(i, 0, q)\n    {\n        ll a, b, d; cin >> a >> b >> d;\
     \ a--, b--;\n        if(r.unite(a, b, d)) ans.push_back(i + 1);\n    }\n    int\
-    \ m = ans.size();\n    rep(i, 0, m) cout << ans[i] << (i == m - 1 ? '\\n' : '\
-    \ ');\n}\n\nint main()\n{\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n\
-    \    int t = 1;\n    //cin >> t;\n    while (t--) solve();\n}"
+    \ m = ans.size();\n    if(m == 0) cout << '\\n';\n    rep(i, 0, m) cout << ans[i]\
+    \ << (i == m - 1 ? '\\n' : ' ');\n}\n\nint main()\n{\n    ios::sync_with_stdio(false);\n\
+    \    std::cin.tie(nullptr);\n    int t = 1;\n    //cin >> t;\n    while (t--)\
+    \ solve();\n}"
   dependsOn:
   - my_template.hpp
   - data_structure/Weighted_UnionFind.hpp
   isVerificationFile: true
   path: verify/test_atcoder/abc328_f.test.cpp
   requiredBy: []
-  timestamp: '2024-05-05 04:24:09+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2024-05-05 04:27:36+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/test_atcoder/abc328_f.test.cpp
 layout: document
