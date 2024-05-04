@@ -76,15 +76,15 @@ data:
     \ }\n    // return weight(y - x)\n};\n#line 4 \"verify/test_atcoder/abc328_f.test.cpp\"\
     \n\nvoid solve()\n{\n    ll n, q; cin >> n >> q;\n    Weighted_UnionFind<ll> r(n);\n\
     \    rep(i, 0, q)\n    {\n        ll a, b, d; cin >> a >> b >> d; a--, b--;\n\
-    \        if(r.unite(a, b, d)) cout << i + 1 << (i == q - 1 ? (char)NULL : ' ');\n\
-    \    }\n}\n\nint main()\n{\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n\
+    \        if(r.unite(a, b, d)) cout << i + 1 << (i == q - 1 ? '\\n' : ' ');\n \
+    \   }\n}\n\nint main()\n{\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n\
     \    int t = 1;\n    //cin >> t;\n    while (t--) solve();\n}\n"
   code: "#define PROBLEM \"https://atcoder.jp/contests/abc328/tasks/abc328_f\"\n#include\
     \ \"my_template.hpp\"\n#include \"data_structure/Weighted_UnionFind.hpp\"\n\n\
     void solve()\n{\n    ll n, q; cin >> n >> q;\n    Weighted_UnionFind<ll> r(n);\n\
     \    rep(i, 0, q)\n    {\n        ll a, b, d; cin >> a >> b >> d; a--, b--;\n\
-    \        if(r.unite(a, b, d)) cout << i + 1 << (i == q - 1 ? (char)NULL : ' ');\n\
-    \    }\n}\n\nint main()\n{\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n\
+    \        if(r.unite(a, b, d)) cout << i + 1 << (i == q - 1 ? '\\n' : ' ');\n \
+    \   }\n}\n\nint main()\n{\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n\
     \    int t = 1;\n    //cin >> t;\n    while (t--) solve();\n}"
   dependsOn:
   - my_template.hpp
@@ -92,7 +92,7 @@ data:
   isVerificationFile: true
   path: verify/test_atcoder/abc328_f.test.cpp
   requiredBy: []
-  timestamp: '2024-05-05 04:07:37+09:00'
+  timestamp: '2024-05-05 04:16:28+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: verify/test_atcoder/abc328_f.test.cpp
