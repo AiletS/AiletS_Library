@@ -6,11 +6,14 @@ void solve()
 {
     ll n, q; cin >> n >> q;
     Weighted_UnionFind<ll> r(n);
+    vi ans;
     rep(i, 0, q)
     {
         ll a, b, d; cin >> a >> b >> d; a--, b--;
-        if(r.unite(a, b, d)) cout << i + 1 << (i == q - 1 ? '\n' : ' ');
+        if(r.unite(a, b, d)) ans.push_back(i + 1);
     }
+    int m = ans.size();
+    rep(i, 0, m) cout << ans[i] << (i == m - 1 ? '\n' : ' ');
 }
 
 int main()
