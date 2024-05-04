@@ -13,6 +13,7 @@ void solve()
         if(r.unite(a, b, d)) ans.push_back(i + 1);
     }
     int m = ans.size();
+    if(m == 0) cout << '\n';
     rep(i, 0, m) cout << ans[i] << (i == m - 1 ? '\n' : ' ');
 }
 
