@@ -6,7 +6,7 @@ data:
     - icon: ':warning:'
       path: base.cpp
       title: base.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: my_template.hpp
       title: my_template.hpp
   - name: data_structure
@@ -23,13 +23,13 @@ data:
     - icon: ':heavy_check_mark:'
       path: data_structure/UnionFind.hpp
       title: data_structure/UnionFind.hpp
-    - icon: ':warning:'
+    - icon: ':x:'
       path: data_structure/Weighted_UnionFind.hpp
       title: data_structure/Weighted_UnionFind.hpp
     - icon: ':warning:'
       path: data_structure/lazy_segtree.hpp
       title: data_structure/lazy_segtree.hpp
-    - icon: ':warning:'
+    - icon: ':x:'
       path: data_structure/merge_sort_tree.hpp
       title: data_structure/merge_sort_tree.hpp
     - icon: ':warning:'
@@ -144,10 +144,18 @@ data:
     - icon: ':heavy_check_mark:'
       path: verify/test_atcoder/abc327_d.test.cpp
       title: verify/test_atcoder/abc327_d.test.cpp
+    - icon: ':x:'
+      path: verify/test_atcoder/abc328_f.test.cpp
+      title: verify/test_atcoder/abc328_f.test.cpp
+    - icon: ':x:'
+      path: verify/test_atcoder/abc351_f.test.cpp
+      title: verify/test_atcoder/abc351_f.test.cpp
 layout: toppage
 ---
 自由にコピペしてください。
 
 ほしいライブラリから Bundle ボタンを押して全部コピペすることで使えます
+
+(一部は my_template.hpp もコピペ必要です infty とか)
 
 バグあったらすみません
