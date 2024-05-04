@@ -5,8 +5,8 @@ data:
     path: graph/graph_base.hpp
     title: graph/graph_base.hpp
   - icon: ':heavy_check_mark:'
-    path: graph/scc.hpp
-    title: graph/scc.hpp
+    path: graph/is_bipartite.hpp
+    title: graph/is_bipartite.hpp
   - icon: ':heavy_check_mark:'
     path: my_template.hpp
     title: my_template.hpp
@@ -17,11 +17,11 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.yosupo.jp/problem/scc
+    PROBLEM: https://atcoder.jp/contests/abc327/tasks/abc327_d
     links:
-    - https://judge.yosupo.jp/problem/scc
-  bundledCode: "#line 1 \"verify/library_checker/Strongly_Connected_Components.test.cpp\"\
-    \n#define PROBLEM \"https://judge.yosupo.jp/problem/scc\"\n#line 2 \"my_template.hpp\"\
+    - https://atcoder.jp/contests/abc327/tasks/abc327_d
+  bundledCode: "#line 1 \"verify/test_atcoder/abc327_d.test.cpp\"\n#define PROBLEM\
+    \ \"https://atcoder.jp/contests/abc327/tasks/abc327_d\"\n#line 2 \"my_template.hpp\"\
     \n#pragma GCC optimize(\"O3\")\n#include <bits/stdc++.h>\nusing namespace std;\n\
     using ll = long long; using ld = long double;\nusing P = pair<int, int>; using\
     \ Pll = pair<ll, ll>;\nusing vi = vector<int>; using vvi = vector<vector<int>>;\
@@ -48,9 +48,9 @@ data:
     \ o, vector<vector<T>>& v) { for(vector<T>& p : v) cout << p << '\\n'; return\
     \ o; }\ntemplate<class T> void operator -- (vector<T>& v, int) { for(T& p : v)\
     \ p--; }\ntemplate<class T> void operator ++ (vector<T>& v, int) { for(T& p :\
-    \ v) p++; }\n#line 2 \"graph/scc.hpp\"\n\n#line 2 \"graph/graph_base.hpp\"\n\n\
-    template <typename T>\nstruct Edge\n{\n    int from, to;\n    T cost;\n    int\
-    \ id;\n    Edge(int from, int to, T cost, int id) : from(from), to(to), cost(cost),\
+    \ v) p++; }\n#line 2 \"graph/is_bipartite.hpp\"\n\n#line 2 \"graph/graph_base.hpp\"\
+    \n\ntemplate <typename T>\nstruct Edge\n{\n    int from, to;\n    T cost;\n  \
+    \  int id;\n    Edge(int from, int to, T cost, int id) : from(from), to(to), cost(cost),\
     \ id(id) {}\n};\n\n/*\nGraph \u30E9\u30A4\u30D6\u30E9\u30EA\nGraph<T = long long,\
     \ directed = false> (int n) : n \u500B\u306E\u9802\u70B9\u3092\u6301\u3064\u30B0\
     \u30E9\u30D5\nT \u306F\u91CD\u307F\u306E\u578B\u3001directed\u306F\u6709\u5411\
@@ -78,48 +78,43 @@ data:
     \ weighted = false, int off = 1)\n    {\n        for(int i = 1; i < n; i++)\n\
     \        {\n            int x; cin >> x; x -= off;\n            if(weighted ==\
     \ false) add(x, i);\n            else { T z; cin >> z; add(x, i, z); }\n     \
-    \   }\n    }\n};\n#line 4 \"graph/scc.hpp\"\n\ntemplate <class G>\nvector<vector<int>>\
-    \ scc(G& g)\n{\n    int n = g.n, m = g.m;\n    const int inf = 1001001001;\n\n\
-    \    auto get_ids = [&]() -> pair<int, vector<int>>\n    {\n\t\tint now_ord =\
-    \ 0, now_id = 0;\n\t\tvector<int> low(n), ord(n, -1), id(n);\n\t\tstack<int> visited;\n\
-    \t\tauto dfs = [&](auto dfs, int v) -> void\n\t\t{\n\t\t\tlow[v] = ord[v] = now_ord++;\n\
-    \t\t\tvisited.push(v);\n\t\t\tfor (auto [_, p, __, ___] : g[v])\n\t\t\t{\n\t\t\
-    \t\tif (ord[p] == -1)\n\t\t\t\t{\n\t\t\t\t\tdfs(dfs, p);\n\t\t\t\t\tlow[v] = min(low[v],\
-    \ low[p]);\n\t\t\t\t}\n\t\t\t\telse low[v] = min(low[v], ord[p]);\n\t\t\t}\n\n\
-    \t\t\tif (low[v] == ord[v])\n\t\t\t{\n\t\t\t\twhile (true)\n\t\t\t\t{\n\t\t\t\t\
-    \tint u = visited.top(); visited.pop();\n\t\t\t\t\tord[u] = inf;\n\t\t\t\t\tid[u]\
-    \ = now_id;\n\t\t\t\t\tif (u == v) break;\n\t\t\t\t}\n\t\t\t\tnow_id++;\n\t\t\t\
-    }\n\t\t};\n\n\t\tfor (int i = 0; i < n; i++)\n\t\t{\n\t\t\tif (ord[i] == -1) dfs(dfs,\
-    \ i);\n\t\t}\n\t\tfor (auto& p : id) p = now_id - 1 - p;\n\t\treturn { now_id,\
-    \ id };\n    };\n\n    auto ids = get_ids();\n    vector<vector<int>> res(ids.first);\n\
-    \    for(int i = 0; i < n; i++) res[ids.second[i]].push_back(i);\n    return res;\n\
-    }\n#line 4 \"verify/library_checker/Strongly_Connected_Components.test.cpp\"\n\
-    \nvoid solve()\n{\n    int n, m; cin >> n >> m;\n    Graph<long long, true> g(n);\n\
-    \    g.mkg(m, false, 0);\n    auto res = scc(g);\n    cout << res.size() << '\\\
-    n';\n    for(auto p : res)\n    {\n        cout << p.size() << ' ' << p << '\\\
-    n';\n    }\n}\n\nint main()\n{\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n\
+    \   }\n    }\n};\n#line 4 \"graph/is_bipartite.hpp\"\n\ntemplate <class G>\nbool\
+    \ is_bipartite(G &g)\n{\n    int n = g.n;\n    bool res = true;\n    vector<int>\
+    \ color(n, -1);\n    auto dfs = [&](auto dfs, int U, int V) -> void\n    {\n \
+    \       for(auto [from, to, _, __] : g[U])\n        {\n            if(color[to]\
+    \ >= 0)\n            {\n                if(color[from] == color[to]) res = false;\n\
+    \                continue;\n            }\n            color[to] = color[from]\
+    \ ^ 1;\n            dfs(dfs, to, from);\n        }\n    };\n    for(int i = 0;\
+    \ i < n; i++)\n    {\n        if(color[i] >= 0) continue;\n        color[i] =\
+    \ 0;\n        dfs(dfs, i, -1);\n    }\n    return res;\n}\n#line 4 \"verify/test_atcoder/abc327_d.test.cpp\"\
+    \n\nvoid solve()\n{\n    int n, m; cin >> n >> m;\n    Graph<int, false> g(n);\n\
+    \    vi a(m), b(m);\n    rep(i, 0, m) cin >> a[i], a[i]--;\n    rep(i, 0, m) cin\
+    \ >> b[i], b[i]--;\n    rep(i, 0, m) g.add(a[i], b[i]);\n    bool ok = is_bipartite(g);\n\
+    \    if(ok) cout << \"Yes\" << '\\n';\n    else cout << \"No\" << '\\n';\n}\n\n\
+    int main()\n{\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n\
     \    int t = 1;\n    //cin >> t;\n    while (t--) solve();\n}\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/scc\"\n#include \"my_template.hpp\"\
-    \n#include \"graph/scc.hpp\"\n\nvoid solve()\n{\n    int n, m; cin >> n >> m;\n\
-    \    Graph<long long, true> g(n);\n    g.mkg(m, false, 0);\n    auto res = scc(g);\n\
-    \    cout << res.size() << '\\n';\n    for(auto p : res)\n    {\n        cout\
-    \ << p.size() << ' ' << p << '\\n';\n    }\n}\n\nint main()\n{\n    ios::sync_with_stdio(false);\n\
-    \    std::cin.tie(nullptr);\n    int t = 1;\n    //cin >> t;\n    while (t--)\
-    \ solve();\n}"
+  code: "#define PROBLEM \"https://atcoder.jp/contests/abc327/tasks/abc327_d\"\n#include\
+    \ \"my_template.hpp\"\n#include \"graph/is_bipartite.hpp\"\n\nvoid solve()\n{\n\
+    \    int n, m; cin >> n >> m;\n    Graph<int, false> g(n);\n    vi a(m), b(m);\n\
+    \    rep(i, 0, m) cin >> a[i], a[i]--;\n    rep(i, 0, m) cin >> b[i], b[i]--;\n\
+    \    rep(i, 0, m) g.add(a[i], b[i]);\n    bool ok = is_bipartite(g);\n    if(ok)\
+    \ cout << \"Yes\" << '\\n';\n    else cout << \"No\" << '\\n';\n}\n\nint main()\n\
+    {\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n    int t = 1;\n\
+    \    //cin >> t;\n    while (t--) solve();\n}"
   dependsOn:
   - my_template.hpp
-  - graph/scc.hpp
+  - graph/is_bipartite.hpp
   - graph/graph_base.hpp
   isVerificationFile: true
-  path: verify/library_checker/Strongly_Connected_Components.test.cpp
+  path: verify/test_atcoder/abc327_d.test.cpp
   requiredBy: []
-  timestamp: '2024-05-03 18:59:10+09:00'
+  timestamp: '2024-05-05 03:26:57+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: verify/library_checker/Strongly_Connected_Components.test.cpp
+documentation_of: verify/test_atcoder/abc327_d.test.cpp
 layout: document
 redirect_from:
-- /verify/verify/library_checker/Strongly_Connected_Components.test.cpp
-- /verify/verify/library_checker/Strongly_Connected_Components.test.cpp.html
-title: verify/library_checker/Strongly_Connected_Components.test.cpp
+- /verify/verify/test_atcoder/abc327_d.test.cpp
+- /verify/verify/test_atcoder/abc327_d.test.cpp.html
+title: verify/test_atcoder/abc327_d.test.cpp
 ---

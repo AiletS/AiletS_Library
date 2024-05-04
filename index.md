@@ -6,7 +6,7 @@ data:
     - icon: ':warning:'
       path: base.cpp
       title: base.cpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: my_template.hpp
       title: my_template.hpp
   - name: data_structure
@@ -57,10 +57,10 @@ data:
     - icon: ':warning:'
       path: graph/dist_dijkstra.hpp
       title: graph/dist_dijkstra.hpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: graph/graph_base.hpp
       title: graph/graph_base.hpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: graph/is_bipartite.hpp
       title: graph/is_bipartite.hpp
     - icon: ':heavy_check_mark:'
@@ -141,9 +141,9 @@ data:
       title: verify/library_checker/Unionfind.test.cpp
   - name: verify/test_atcoder
     pages:
-    - icon: ':x:'
-      path: verify/test_atcoder/math_and_algorithm_ao.test.cpp
-      title: verify/test_atcoder/math_and_algorithm_ao.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: verify/test_atcoder/abc327_d.test.cpp
+      title: verify/test_atcoder/abc327_d.test.cpp
 layout: toppage
 ---
 自由にコピペしてください。
