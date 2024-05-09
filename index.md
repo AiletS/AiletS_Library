@@ -49,6 +49,11 @@ data:
     - icon: ':warning:'
       path: flow/maxflow.hpp
       title: flow/maxflow.hpp
+  - name: fps
+    pages:
+    - icon: ':warning:'
+      path: fps/fps.hpp
+      title: fps/fps.hpp
   - name: graph
     pages:
     - icon: ':warning:'
@@ -82,6 +87,9 @@ data:
       title: graph/tree/tree_base.hpp
   - name: math
     pages:
+    - icon: ':warning:'
+      path: math/Eratos.hpp
+      title: math/Eratos.hpp
     - icon: ':warning:'
       path: math/asum.hpp
       title: math/asum.hpp
