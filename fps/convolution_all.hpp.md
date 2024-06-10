@@ -5,41 +5,42 @@ data:
     path: data_structure/mint.hpp
     title: data_structure/mint.hpp
   - icon: ':warning:'
+    path: fps/fps.hpp
+    title: fps/fps.hpp
+  - icon: ':warning:'
     path: math/convolution.hpp
     title: math/convolution.hpp
-  _extendedRequiredBy:
-  - icon: ':warning:'
-    path: fps/convolution_all.hpp
-    title: fps/convolution_all.hpp
+  _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':warning:'
   attributes:
     links: []
-  bundledCode: "#line 2 \"fps/fps.hpp\"\n\n#line 2 \"data_structure/mint.hpp\"\n\n\
-    // Mod int\nusing ull = unsigned long long; using uint = unsigned;\n#define pb\
-    \ push_back\nuint mod = 998244353;\n//const uint mod = 1000000007;\nstruct mint\
-    \ {\n    uint x;\n    mint() : x(0) {}\n    mint(ll x) :x((x% mod + mod) % mod)\
-    \ {}\n    mint operator-() const { return mint(0) - *this; }\n    mint operator~()\
-    \ const { return mint(1) / *this; }\n    mint& operator+=(const mint& a) { if\
-    \ ((x += a.x) >= mod) x -= mod; return *this; }\n    mint& operator-=(const mint&\
-    \ a) { if ((x += mod - a.x) >= mod) x -= mod; return *this; }\n    mint& operator*=(const\
-    \ mint& a) { x = (ull)x * a.x % mod; return *this; }\n    mint& operator/=(const\
-    \ mint& a) { x = (ull)x * a.pow(mod - 2).x % mod; return *this; }\n    mint operator+(const\
-    \ mint& a) const { return mint(*this) += a; }\n    mint operator-(const mint&\
-    \ a) const { return mint(*this) -= a; }\n    mint operator*(const mint& a) const\
-    \ { return mint(*this) *= a; }\n    mint operator/(const mint& a) const { return\
-    \ mint(*this) /= a; }\n    mint operator++() const { return *this + 1; }\n   \
-    \ mint operator--() const { return *this - 1; }\n    mint pow(ll t) const {\n\
-    \        mint res = 1; for (mint p = x; t; p *= p, t >>= 1) if (t & 1) res *=\
-    \ p; return res;\n    }\n    mint ppow(ll t) const { int p = mod - 1; return pow((t\
-    \ % p + p) % p); }\n    uint val() const { return x; }\n    bool operator<(const\
-    \ mint& a) const { return x < a.x; }\n    bool operator==(const mint& a) const\
-    \ { return x == a.x; }\n    bool operator!=(const mint& a) const { return x !=\
-    \ a.x; }\n};\nmint ex(mint x, ll t) { return x.pow(t); }\nistream& operator>>(istream&\
-    \ i, mint& a) { i >> a.x; return i; }\n//*\nostream& operator<<(ostream& o, const\
-    \ mint& a) { o << a.x; return o; }\nusing vm = vector<mint>;\nusing vvm = vector<vm>;\n\
+  bundledCode: "#line 2 \"fps/convolution_all.hpp\"\n\n#line 2 \"fps/fps.hpp\"\n\n\
+    #line 2 \"data_structure/mint.hpp\"\n\n// Mod int\nusing ull = unsigned long long;\
+    \ using uint = unsigned;\n#define pb push_back\nuint mod = 998244353;\n//const\
+    \ uint mod = 1000000007;\nstruct mint {\n    uint x;\n    mint() : x(0) {}\n \
+    \   mint(ll x) :x((x% mod + mod) % mod) {}\n    mint operator-() const { return\
+    \ mint(0) - *this; }\n    mint operator~() const { return mint(1) / *this; }\n\
+    \    mint& operator+=(const mint& a) { if ((x += a.x) >= mod) x -= mod; return\
+    \ *this; }\n    mint& operator-=(const mint& a) { if ((x += mod - a.x) >= mod)\
+    \ x -= mod; return *this; }\n    mint& operator*=(const mint& a) { x = (ull)x\
+    \ * a.x % mod; return *this; }\n    mint& operator/=(const mint& a) { x = (ull)x\
+    \ * a.pow(mod - 2).x % mod; return *this; }\n    mint operator+(const mint& a)\
+    \ const { return mint(*this) += a; }\n    mint operator-(const mint& a) const\
+    \ { return mint(*this) -= a; }\n    mint operator*(const mint& a) const { return\
+    \ mint(*this) *= a; }\n    mint operator/(const mint& a) const { return mint(*this)\
+    \ /= a; }\n    mint operator++() const { return *this + 1; }\n    mint operator--()\
+    \ const { return *this - 1; }\n    mint pow(ll t) const {\n        mint res =\
+    \ 1; for (mint p = x; t; p *= p, t >>= 1) if (t & 1) res *= p; return res;\n \
+    \   }\n    mint ppow(ll t) const { int p = mod - 1; return pow((t % p + p) % p);\
+    \ }\n    uint val() const { return x; }\n    bool operator<(const mint& a) const\
+    \ { return x < a.x; }\n    bool operator==(const mint& a) const { return x ==\
+    \ a.x; }\n    bool operator!=(const mint& a) const { return x != a.x; }\n};\n\
+    mint ex(mint x, ll t) { return x.pow(t); }\nistream& operator>>(istream& i, mint&\
+    \ a) { i >> a.x; return i; }\n//*\nostream& operator<<(ostream& o, const mint&\
+    \ a) { o << a.x; return o; }\nusing vm = vector<mint>;\nusing vvm = vector<vm>;\n\
     using vvvm = vector<vvm>;\nstruct modinv {\n    int n; vm d;\n    modinv() : n(2),\
     \ d({ 0,1 }) {}\n    mint operator()(int i) { while (n <= i) d.pb(-d[mod % n]\
     \ * (mod / n)), ++n; return d[i]; }\n    mint operator[](int i) const { return\
@@ -122,42 +123,33 @@ data:
     \ <<= c; }\n    fps& operator>>=(const T& c)\n    {\n        int n = (*this).size();\n\
     \        (*this).erase((*this).begin(), (*this).begin() + min(n, c));\n      \
     \  (*this).resize(n);\n        return *this;\n    }\n    fps operator>>(const\
-    \ T c) const { return fps(*this) >>= c; }\n};\n\nusing fps = FormalPowerSeries<mint>;\n"
-  code: "#pragma once\n\n#include \"data_structure/mint.hpp\"\n#include \"math/convolution.hpp\"\
-    \n\ntemplate<class T>\nstruct FormalPowerSeries : vector<T>\n{\n    using fps\
-    \ = FormalPowerSeries;\n    using vector<T>::vector;\n    using vector<T>::operator=;\n\
-    \n    fps operator-() const { fps r(*this); for(auto& p : r) p = -p; return r;\
-    \ }\n    fps& operator+=(const fps& r) \n    { \n        int n = min((*this).size(),\
-    \ r.size());   \n        for(int i = 0; i < n; i++) (*this)[i] += r[i];\n    \
-    \    return *this;\n    }\n    fps operator+(const fps& r) const { return fps(*this)\
-    \ += r; }\n    fps& operator-=(const fps& r) \n    { \n        int n = min((*this).size(),\
-    \ r.size());   \n        for(int i = 0; i < n; i++) (*this)[i] -= r[i];\n    \
-    \    return *this;\n    }\n    fps operator-(const fps& r) const { return fps(*this)\
-    \ -= r; }\n    fps& operator*=(T& c) { for(auto& p : *this) p *= c; return *this;\
-    \ }\n    fps operator*(T c) { return fps(*this) *= c; }\n    fps& operator*=(const\
-    \ fps& r) { *this = convolution(*this, r); return *this; }\n    fps operator*(const\
-    \ fps& r) const { return fps(*this) *= r; }\n    fps& operator<<=(const T& c)\
-    \ \n    {\n        int n = (*this).size();\n        (*this).insert((*this).begin(),\
-    \ c, 0);\n        (*this).resize(n);\n        return *this;\n    }\n    fps operator<<(const\
-    \ T c) const { return fps(*this) <<= c; }\n    fps& operator>>=(const T& c)\n\
-    \    {\n        int n = (*this).size();\n        (*this).erase((*this).begin(),\
-    \ (*this).begin() + min(n, c));\n        (*this).resize(n);\n        return *this;\n\
-    \    }\n    fps operator>>(const T c) const { return fps(*this) >>= c; }\n};\n\
-    \nusing fps = FormalPowerSeries<mint>;"
+    \ T c) const { return fps(*this) >>= c; }\n};\n\nusing fps = FormalPowerSeries<mint>;\n\
+    #line 4 \"fps/convolution_all.hpp\"\n\n/*\nfps \u3059\u3079\u3066\u3092 convolution\
+    \ \u3059\u308B\nO(n log^2 n) n \u306F\u9805\u306E\u9577\u3055\u306E\u7DCF\u548C\
+    \n*/\nfps convolution_all(vector<fps>& v)\n{\n    queue<fps> q;\n    for(auto\
+    \ p : v) q.push(p);\n    while(q.size() >= 2)\n    {\n        auto l = q.front();\
+    \ q.pop();\n        auto r = q.front(); q.pop();\n        q.push(l * r);\n   \
+    \ }\n    return q.front();\n}\n"
+  code: "#pragma once\n\n#include \"fps/fps.hpp\"\n\n/*\nfps \u3059\u3079\u3066\u3092\
+    \ convolution \u3059\u308B\nO(n log^2 n) n \u306F\u9805\u306E\u9577\u3055\u306E\
+    \u7DCF\u548C\n*/\nfps convolution_all(vector<fps>& v)\n{\n    queue<fps> q;\n\
+    \    for(auto p : v) q.push(p);\n    while(q.size() >= 2)\n    {\n        auto\
+    \ l = q.front(); q.pop();\n        auto r = q.front(); q.pop();\n        q.push(l\
+    \ * r);\n    }\n    return q.front();\n}"
   dependsOn:
+  - fps/fps.hpp
   - data_structure/mint.hpp
   - math/convolution.hpp
   isVerificationFile: false
-  path: fps/fps.hpp
-  requiredBy:
-  - fps/convolution_all.hpp
+  path: fps/convolution_all.hpp
+  requiredBy: []
   timestamp: '2024-06-10 11:18:41+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: fps/fps.hpp
+documentation_of: fps/convolution_all.hpp
 layout: document
 redirect_from:
-- /library/fps/fps.hpp
-- /library/fps/fps.hpp.html
-title: fps/fps.hpp
+- /library/fps/convolution_all.hpp
+- /library/fps/convolution_all.hpp.html
+title: fps/convolution_all.hpp
 ---

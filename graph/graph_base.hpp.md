@@ -91,15 +91,15 @@ data:
   isVerificationFile: false
   path: graph/graph_base.hpp
   requiredBy:
+  - graph/dist_dijkstra.hpp
+  - graph/dist_bfs.hpp
   - graph/is_bipartite.hpp
   - graph/scc.hpp
-  - graph/dist_bfs.hpp
-  - graph/dist_dijkstra.hpp
   timestamp: '2024-05-03 01:16:09+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - verify/test_atcoder/abc327_d.test.cpp
   - verify/library_checker/Strongly_Connected_Components.test.cpp
+  - verify/test_atcoder/abc327_d.test.cpp
 documentation_of: graph/graph_base.hpp
 layout: document
 redirect_from:

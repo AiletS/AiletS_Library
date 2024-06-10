@@ -1,10 +1,10 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: data_structure/segtree.hpp
     title: data_structure/segtree.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: monoid/monoid_min.hpp
     title: monoid/monoid_min.hpp
   - icon: ':question:'
@@ -12,9 +12,9 @@ data:
     title: my_template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/staticrmq
@@ -68,7 +68,7 @@ data:
     \ n;\n\n\t\twhile (l < r) {\n\t\t\tif (l & 1) ls = Monoid::op(ls, v[l++]);\n\t\
     \t\tif (r & 1) rs = Monoid::op(v[--r], rs);\n\t\t\tl >>= 1; r >>= 1;\n\t\t}\n\t\
     \treturn Monoid::op(ls, rs);\n\t}\n};\n#line 2 \"monoid/monoid_min.hpp\"\n\ntemplate\
-    \ <class _S>\nstruct Monoid_min\n{\n    using TYPE = _S;\n    static TYPE op(TYPE\
+    \ <class _S>\nstruct monoid_min\n{\n    using TYPE = _S;\n    static TYPE op(TYPE\
     \ a, TYPE b)\n    {\n        return min(a, b);\n    };\n    static TYPE e() \n\
     \    {\n        return infty<TYPE>;\n    };\n};\n#line 5 \"verify/library_checker/Static_RMQ.test.cpp\"\
     \n\nvoid solve()\n{\n    int n, q; cin >> n >> q;\n    vi a(n); cin >> a;\n  \
@@ -90,8 +90,8 @@ data:
   isVerificationFile: true
   path: verify/library_checker/Static_RMQ.test.cpp
   requiredBy: []
-  timestamp: '2024-05-03 18:59:10+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2024-06-10 11:18:41+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: verify/library_checker/Static_RMQ.test.cpp
 layout: document

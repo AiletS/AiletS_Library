@@ -3,6 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy:
   - icon: ':warning:'
+    path: fps/convolution_all.hpp
+    title: fps/convolution_all.hpp
+  - icon: ':warning:'
+    path: fps/fps.hpp
+    title: fps/fps.hpp
+  - icon: ':warning:'
     path: math/convolution.hpp
     title: math/convolution.hpp
   _extendedVerifiedWith: []
@@ -93,6 +99,8 @@ data:
   isVerificationFile: false
   path: data_structure/mint.hpp
   requiredBy:
+  - fps/convolution_all.hpp
+  - fps/fps.hpp
   - math/convolution.hpp
   timestamp: '2024-05-03 01:16:09+09:00'
   verificationStatus: LIBRARY_NO_TESTS

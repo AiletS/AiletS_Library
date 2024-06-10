@@ -17,6 +17,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: data_structure/FenwickTree.hpp
       title: data_structure/FenwickTree.hpp
+    - icon: ':warning:'
+      path: data_structure/Matrix.hpp
+      title: data_structure/Matrix.hpp
     - icon: ':heavy_check_mark:'
       path: data_structure/SparseTable.hpp
       title: data_structure/SparseTable.hpp
@@ -41,7 +44,7 @@ data:
     - icon: ':warning:'
       path: data_structure/rational.hpp
       title: data_structure/rational.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: data_structure/segtree.hpp
       title: data_structure/segtree.hpp
   - name: flow
@@ -51,6 +54,9 @@ data:
       title: flow/maxflow.hpp
   - name: fps
     pages:
+    - icon: ':warning:'
+      path: fps/convolution_all.hpp
+      title: fps/convolution_all.hpp
     - icon: ':warning:'
       path: fps/fps.hpp
       title: fps/fps.hpp
@@ -113,7 +119,10 @@ data:
     - icon: ':warning:'
       path: monoid/monoid_arbi.hpp
       title: monoid/monoid_arbi.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':warning:'
+      path: monoid/monoid_max.hpp
+      title: monoid/monoid_max.hpp
+    - icon: ':x:'
       path: monoid/monoid_min.hpp
       title: monoid/monoid_min.hpp
   - name: operatormonoid
@@ -135,7 +144,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: verify/library_checker/Lowest_Common_Ancestor.test.cpp
       title: verify/library_checker/Lowest_Common_Ancestor.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: verify/library_checker/Static_RMQ.test.cpp
       title: verify/library_checker/Static_RMQ.test.cpp
     - icon: ':heavy_check_mark:'

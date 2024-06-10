@@ -51,8 +51,8 @@ data:
   isVerificationFile: false
   path: data_structure/SparseTable.hpp
   requiredBy:
-  - graph/tree/CompressTree.hpp
   - graph/tree/lca.hpp
+  - graph/tree/CompressTree.hpp
   timestamp: '2024-05-03 01:16:09+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:

@@ -9,7 +9,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: verify/library_checker/Lowest_Common_Ancestor.test.cpp
     title: verify/library_checker/Lowest_Common_Ancestor.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: verify/library_checker/Static_RMQ.test.cpp
     title: verify/library_checker/Static_RMQ.test.cpp
   - icon: ':heavy_check_mark:'
@@ -179,14 +179,14 @@ data:
   timestamp: '2024-05-03 01:16:09+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - verify/test_atcoder/abc327_d.test.cpp
-  - verify/test_atcoder/abc328_f.test.cpp
-  - verify/test_atcoder/abc351_f.test.cpp
   - verify/library_checker/Unionfind.test.cpp
   - verify/library_checker/Static_Range_Sum.test.cpp
   - verify/library_checker/Lowest_Common_Ancestor.test.cpp
   - verify/library_checker/Static_RMQ.test.cpp
   - verify/library_checker/Strongly_Connected_Components.test.cpp
+  - verify/test_atcoder/abc328_f.test.cpp
+  - verify/test_atcoder/abc327_d.test.cpp
+  - verify/test_atcoder/abc351_f.test.cpp
 documentation_of: my_template.hpp
 layout: document
 redirect_from:

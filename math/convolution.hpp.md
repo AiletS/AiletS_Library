@@ -4,7 +4,13 @@ data:
   - icon: ':warning:'
     path: data_structure/mint.hpp
     title: data_structure/mint.hpp
-  _extendedRequiredBy: []
+  _extendedRequiredBy:
+  - icon: ':warning:'
+    path: fps/convolution_all.hpp
+    title: fps/convolution_all.hpp
+  - icon: ':warning:'
+    path: fps/fps.hpp
+    title: fps/fps.hpp
   _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: hpp
@@ -84,14 +90,18 @@ data:
     \ p];\n                a[i + offset] = l + r;\n                a[i + offset +\
     \ p] =\n                    (unsigned long long)(mod + l.val() - r.val()) *\n\
     \                    inow.val();\n            }\n            inow *= sum_ie[__countr_zero(~(unsigned\
-    \ int)(s))];\n        }\n    }\n}\n\nvector<mint> convolution(vector<mint> &a,\
-    \ vector<mint> &b)\n{   // mod 998244353\n    long long len = a.size() + b.size()\
-    \ - 1, n = 1;\n    while(n <= len) n <<= 1;\n    a.resize(n), b.resize(n);\n \
-    \   \n    NTT(a), NTT(b);\n    vector<mint> c(n);\n    for(int i = 0; i < n; i++)\
-    \ c[i] = a[i] * b[i];\n    NTT_inv(c);\n    c.resize(a.size() + b.size() - 1);\n\
-    \    mint in = mint(1) / n;\n    for(mint &p : c) p *= in;\n    return c;\n}\n\
-    \nvector<mint> convolution(vector<long long>& a, vector<long long>& b)\n{  \n\
-    \    vector<mint> ma, mb;\n    for(int i = 0; i < a.size(); i++) ma.push_back(a[i]);\n\
+    \ int)(s))];\n        }\n    }\n}\n\nvector<mint> convolution(vector<mint> a,\
+    \ vector<mint> b)\n{   // mod 998244353\n    int n = a.size(), m = b.size(), len\
+    \ = 1;\n    if(n == 0 || m == 0) return {};\n    if(min(n, m) <= 60)\n    {\n\
+    \        if(n < m) swap(n, m), swap(a, b);\n        vector<mint> res(n + m - 1);\n\
+    \        for (int i = 0; i < n; i++) {\n            for (int j = 0; j < m; j++)\
+    \ {\n                res[i + j] += a[i] * b[j];\n            }\n        }\n  \
+    \      return res;\n    }\n    while(len <= n + m - 1) len <<= 1;\n    a.resize(len),\
+    \ b.resize(len);\n    \n    NTT(a), NTT(b);\n    vector<mint> c(len);\n    for(int\
+    \ i = 0; i < len; i++) c[i] = a[i] * b[i];\n    NTT_inv(c);\n    c.resize(n +\
+    \ m - 1);\n    mint in = mint(1) / len;\n    for(mint &p : c) p *= in;\n    return\
+    \ c;\n}\n\nvector<mint> convolution(vector<long long>& a, vector<long long>& b)\n\
+    {  \n    vector<mint> ma, mb;\n    for(int i = 0; i < a.size(); i++) ma.push_back(a[i]);\n\
     \    for(int i = 0; i < b.size(); i++) mb.push_back(b[i]);\n    return convolution(ma,\
     \ mb);\n}\n"
   code: "#pragma once\n\n#include \"data_structure/mint.hpp\"\n\nint ceil_pow(int\
@@ -128,22 +138,28 @@ data:
     \ p];\n                a[i + offset] = l + r;\n                a[i + offset +\
     \ p] =\n                    (unsigned long long)(mod + l.val() - r.val()) *\n\
     \                    inow.val();\n            }\n            inow *= sum_ie[__countr_zero(~(unsigned\
-    \ int)(s))];\n        }\n    }\n}\n\nvector<mint> convolution(vector<mint> &a,\
-    \ vector<mint> &b)\n{   // mod 998244353\n    long long len = a.size() + b.size()\
-    \ - 1, n = 1;\n    while(n <= len) n <<= 1;\n    a.resize(n), b.resize(n);\n \
-    \   \n    NTT(a), NTT(b);\n    vector<mint> c(n);\n    for(int i = 0; i < n; i++)\
-    \ c[i] = a[i] * b[i];\n    NTT_inv(c);\n    c.resize(a.size() + b.size() - 1);\n\
-    \    mint in = mint(1) / n;\n    for(mint &p : c) p *= in;\n    return c;\n}\n\
-    \nvector<mint> convolution(vector<long long>& a, vector<long long>& b)\n{  \n\
-    \    vector<mint> ma, mb;\n    for(int i = 0; i < a.size(); i++) ma.push_back(a[i]);\n\
+    \ int)(s))];\n        }\n    }\n}\n\nvector<mint> convolution(vector<mint> a,\
+    \ vector<mint> b)\n{   // mod 998244353\n    int n = a.size(), m = b.size(), len\
+    \ = 1;\n    if(n == 0 || m == 0) return {};\n    if(min(n, m) <= 60)\n    {\n\
+    \        if(n < m) swap(n, m), swap(a, b);\n        vector<mint> res(n + m - 1);\n\
+    \        for (int i = 0; i < n; i++) {\n            for (int j = 0; j < m; j++)\
+    \ {\n                res[i + j] += a[i] * b[j];\n            }\n        }\n  \
+    \      return res;\n    }\n    while(len <= n + m - 1) len <<= 1;\n    a.resize(len),\
+    \ b.resize(len);\n    \n    NTT(a), NTT(b);\n    vector<mint> c(len);\n    for(int\
+    \ i = 0; i < len; i++) c[i] = a[i] * b[i];\n    NTT_inv(c);\n    c.resize(n +\
+    \ m - 1);\n    mint in = mint(1) / len;\n    for(mint &p : c) p *= in;\n    return\
+    \ c;\n}\n\nvector<mint> convolution(vector<long long>& a, vector<long long>& b)\n\
+    {  \n    vector<mint> ma, mb;\n    for(int i = 0; i < a.size(); i++) ma.push_back(a[i]);\n\
     \    for(int i = 0; i < b.size(); i++) mb.push_back(b[i]);\n    return convolution(ma,\
     \ mb);\n}"
   dependsOn:
   - data_structure/mint.hpp
   isVerificationFile: false
   path: math/convolution.hpp
-  requiredBy: []
-  timestamp: '2024-05-03 01:16:09+09:00'
+  requiredBy:
+  - fps/convolution_all.hpp
+  - fps/fps.hpp
+  timestamp: '2024-06-10 11:18:41+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: math/convolution.hpp
