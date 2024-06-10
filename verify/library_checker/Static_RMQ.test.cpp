@@ -7,7 +7,7 @@ void solve()
 {
     int n, q; cin >> n >> q;
     vi a(n); cin >> a;
-    segtree<Monoid_min<int>> seg(a);
+    segtree<monoid_min<int>> seg(a);
     while(q--)
     {
         int l, r; cin >> l >> r;
