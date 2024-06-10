@@ -1,20 +1,20 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: data_structure/segtree.hpp
     title: data_structure/segtree.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: monoid/monoid_min.hpp
     title: monoid/monoid_min.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: my_template.hpp
     title: my_template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/staticrmq
@@ -72,14 +72,14 @@ data:
     \ a, TYPE b)\n    {\n        return min(a, b);\n    };\n    static TYPE e() \n\
     \    {\n        return infty<TYPE>;\n    };\n};\n#line 5 \"verify/library_checker/Static_RMQ.test.cpp\"\
     \n\nvoid solve()\n{\n    int n, q; cin >> n >> q;\n    vi a(n); cin >> a;\n  \
-    \  segtree<Monoid_min<int>> seg(a);\n    while(q--)\n    {\n        int l, r;\
+    \  segtree<monoid_min<int>> seg(a);\n    while(q--)\n    {\n        int l, r;\
     \ cin >> l >> r;\n        cout << seg.get(l, r) << '\\n';\n    }\n}\n\nint main()\n\
     {\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n    int t = 1;\n\
     \    //cin >> t;\n    while (t--) solve();\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/staticrmq\"\n#include \"\
     my_template.hpp\"\n#include \"data_structure/segtree.hpp\"\n#include \"monoid/monoid_min.hpp\"\
     \n\nvoid solve()\n{\n    int n, q; cin >> n >> q;\n    vi a(n); cin >> a;\n  \
-    \  segtree<Monoid_min<int>> seg(a);\n    while(q--)\n    {\n        int l, r;\
+    \  segtree<monoid_min<int>> seg(a);\n    while(q--)\n    {\n        int l, r;\
     \ cin >> l >> r;\n        cout << seg.get(l, r) << '\\n';\n    }\n}\n\nint main()\n\
     {\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n    int t = 1;\n\
     \    //cin >> t;\n    while (t--) solve();\n}"
@@ -90,8 +90,8 @@ data:
   isVerificationFile: true
   path: verify/library_checker/Static_RMQ.test.cpp
   requiredBy: []
-  timestamp: '2024-06-10 11:18:41+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2024-06-10 12:18:41+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/library_checker/Static_RMQ.test.cpp
 layout: document

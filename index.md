@@ -6,7 +6,7 @@ data:
     - icon: ':warning:'
       path: base.cpp
       title: base.cpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: my_template.hpp
       title: my_template.hpp
   - name: data_structure
@@ -44,7 +44,7 @@ data:
     - icon: ':warning:'
       path: data_structure/rational.hpp
       title: data_structure/rational.hpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: data_structure/segtree.hpp
       title: data_structure/segtree.hpp
   - name: flow
@@ -122,7 +122,7 @@ data:
     - icon: ':warning:'
       path: monoid/monoid_max.hpp
       title: monoid/monoid_max.hpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: monoid/monoid_min.hpp
       title: monoid/monoid_min.hpp
   - name: operatormonoid
@@ -144,7 +144,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: verify/library_checker/Lowest_Common_Ancestor.test.cpp
       title: verify/library_checker/Lowest_Common_Ancestor.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: verify/library_checker/Static_RMQ.test.cpp
       title: verify/library_checker/Static_RMQ.test.cpp
     - icon: ':heavy_check_mark:'
