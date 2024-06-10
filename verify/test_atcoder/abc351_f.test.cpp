@@ -15,7 +15,7 @@ void solve()
         auto [x, y] = st.get(i + 1, n, v[i]);
         ans += (sum - y) - v[i] * (n - 1 - i - x);
     }
-    cout << ans;
+    cout << ans << '\n';
 }
 
 int main()
