@@ -14,7 +14,7 @@ class CC
 	CC(const vector<T>& _v)
 	{
 		is_build = false;
-		for(T x : _v) v.add(x);
+		for(T x : _v) add(x);
 	}
 
 	void add(T x) { v.push_back(x); is_build = false; }

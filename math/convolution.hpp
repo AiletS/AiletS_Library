@@ -99,18 +99,30 @@ void NTT_inv(vector<mint>& a)
     }
 }
 
-vector<mint> convolution(vector<mint> &a, vector<mint> &b)
+vector<mint> convolution(vector<mint> a, vector<mint> b)
 {   // mod 998244353
-    long long len = a.size() + b.size() - 1, n = 1;
-    while(n <= len) n <<= 1;
-    a.resize(n), b.resize(n);
+    int n = a.size(), m = b.size(), len = 1;
+    if(n == 0 || m == 0) return {};
+    if(min(n, m) <= 60)
+    {
+        if(n < m) swap(n, m), swap(a, b);
+        vector<mint> res(n + m - 1);
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                res[i + j] += a[i] * b[j];
+            }
+        }
+        return res;
+    }
+    while(len <= n + m - 1) len <<= 1;
+    a.resize(len), b.resize(len);
     
     NTT(a), NTT(b);
-    vector<mint> c(n);
-    for(int i = 0; i < n; i++) c[i] = a[i] * b[i];
+    vector<mint> c(len);
+    for(int i = 0; i < len; i++) c[i] = a[i] * b[i];
     NTT_inv(c);
-    c.resize(a.size() + b.size() - 1);
-    mint in = mint(1) / n;
+    c.resize(n + m - 1);
+    mint in = mint(1) / len;
     for(mint &p : c) p *= in;
     return c;
 }

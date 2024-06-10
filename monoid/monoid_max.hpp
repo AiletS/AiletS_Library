@@ -1,15 +1,15 @@
 #pragma once
 
 template <class _S>
-struct monoid_min
+struct monoid_max
 {
     using TYPE = _S;
     static TYPE op(TYPE a, TYPE b)
     {
-        return min(a, b);
+        return max(a, b);
     };
     static TYPE e() 
     {
-        return infty<TYPE>;
+        return -infty<TYPE>;
     };
 };
