@@ -32,7 +32,7 @@ data:
     - icon: ':warning:'
       path: data_structure/lazy_segtree.hpp
       title: data_structure/lazy_segtree.hpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: data_structure/merge_sort_tree.hpp
       title: data_structure/merge_sort_tree.hpp
     - icon: ':warning:'
@@ -164,7 +164,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: verify/test_atcoder/abc328_f.test.cpp
       title: verify/test_atcoder/abc328_f.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: verify/test_atcoder/abc351_f.test.cpp
       title: verify/test_atcoder/abc351_f.test.cpp
 layout: toppage

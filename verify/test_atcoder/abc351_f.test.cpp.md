@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: data_structure/merge_sort_tree.hpp
     title: data_structure/merge_sort_tree.hpp
   - icon: ':question:'
@@ -9,9 +9,9 @@ data:
     title: my_template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://atcoder.jp/contests/abc351/tasks/abc351_f
@@ -71,8 +71,8 @@ data:
     {\n    ll n; cin >> n;\n    vl v(n); cin >> v;\n    merge_sort_tree st(v);\n \
     \   ll sum = accumulate(v.begin(), v.end(), 0LL);\n    ll ans = 0;\n    rep(i,\
     \ 0, n)\n    {\n        sum -= v[i];\n        auto [x, y] = st.get(i + 1, n, v[i]);\n\
-    \        ans += (sum - y) - v[i] * (n - 1 - i - x);\n    }\n    cout << ans;\n\
-    }\n\nint main()\n{\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n\
+    \        ans += (sum - y) - v[i] * (n - 1 - i - x);\n    }\n    cout << ans <<\
+    \ '\\n';\n}\n\nint main()\n{\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n\
     \    int t = 1;\n    //cin >> t;\n    while (t--) solve();\n}\n"
   code: "#define PROBLEM \"https://atcoder.jp/contests/abc351/tasks/abc351_f\"\n#include\
     \ \"my_template.hpp\"\n#include \"data_structure/merge_sort_tree.hpp\"\n\nvoid\
@@ -80,16 +80,17 @@ data:
     \ st(v);\n    ll sum = accumulate(v.begin(), v.end(), 0LL);\n    ll ans = 0;\n\
     \    rep(i, 0, n)\n    {\n        sum -= v[i];\n        auto [x, y] = st.get(i\
     \ + 1, n, v[i]);\n        ans += (sum - y) - v[i] * (n - 1 - i - x);\n    }\n\
-    \    cout << ans;\n}\n\nint main()\n{\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n\
-    \    int t = 1;\n    //cin >> t;\n    while (t--) solve();\n}"
+    \    cout << ans << '\\n';\n}\n\nint main()\n{\n    ios::sync_with_stdio(false);\n\
+    \    std::cin.tie(nullptr);\n    int t = 1;\n    //cin >> t;\n    while (t--)\
+    \ solve();\n}"
   dependsOn:
   - my_template.hpp
   - data_structure/merge_sort_tree.hpp
   isVerificationFile: true
   path: verify/test_atcoder/abc351_f.test.cpp
   requiredBy: []
-  timestamp: '2024-05-05 03:37:43+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2024-06-10 12:11:41+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/test_atcoder/abc351_f.test.cpp
 layout: document
