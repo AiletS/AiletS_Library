@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: verify/test_atcoder/abc351_f.test.cpp
     title: verify/test_atcoder/abc351_f.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "#line 2 \"data_structure/merge_sort_tree.hpp\"\n\n/*\nmerge sort tree\n\
@@ -61,7 +61,7 @@ data:
   path: data_structure/merge_sort_tree.hpp
   requiredBy: []
   timestamp: '2024-05-03 01:16:09+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - verify/test_atcoder/abc351_f.test.cpp
 documentation_of: data_structure/merge_sort_tree.hpp

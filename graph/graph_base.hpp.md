@@ -8,22 +8,40 @@ data:
   - icon: ':warning:'
     path: graph/dist_dijkstra.hpp
     title: graph/dist_dijkstra.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: graph/is_bipartite.hpp
     title: graph/is_bipartite.hpp
   - icon: ':heavy_check_mark:'
     path: graph/scc.hpp
     title: graph/scc.hpp
+  - icon: ':warning:'
+    path: graph/tree/CompressTree.hpp
+    title: graph/tree/CompressTree.hpp
+  - icon: ':x:'
+    path: graph/tree/EulerTour.hpp
+    title: graph/tree/EulerTour.hpp
+  - icon: ':warning:'
+    path: graph/tree/Rerooting_dp.hpp
+    title: graph/tree/Rerooting_dp.hpp
+  - icon: ':x:'
+    path: graph/tree/lca.hpp
+    title: graph/tree/lca.hpp
+  - icon: ':x:'
+    path: graph/tree/tree_base.hpp
+    title: graph/tree/tree_base.hpp
   _extendedVerifiedWith:
+  - icon: ':x:'
+    path: verify/library_checker/Lowest_Common_Ancestor.test.cpp
+    title: verify/library_checker/Lowest_Common_Ancestor.test.cpp
   - icon: ':heavy_check_mark:'
     path: verify/library_checker/Strongly_Connected_Components.test.cpp
     title: verify/library_checker/Strongly_Connected_Components.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: verify/test_atcoder/abc327_d.test.cpp
     title: verify/test_atcoder/abc327_d.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"graph/graph_base.hpp\"\n\ntemplate <typename T>\nstruct\
@@ -40,12 +58,13 @@ data:
     \ = false, int off = 1) n-1\u8FBA\u306E\u30B0\u30E9\u30D5\u3092\u5165\u529B\u304B\
     \u3089\u4F5C\u308B\n*/\ntemplate <typename T = long long, bool directed = false>\n\
     struct Graph\n{\n    using cost_type = T;\n    int n, m;\n    vector<vector<Edge<T>>>\
-    \ G;\n    vector<Edge<T>> edges;\n    vector<int> in_deg, out_deg;\n\n    Graph()\
-    \ {}\n    Graph(int N) \n    {\n        n = N; m = 0;\n        G = vector<vector<Edge<T>>>(N);\n\
-    \        in_deg = vector<int>(N, 0);\n        out_deg = vector<int>(N, 0);\n \
-    \   }\n\n    vector<Edge<T>> operator[](int x) const { return G[x]; }\n\n    void\
-    \ add(int from, int to, T cost = 1, int id = -1)\\\n    {\n        if(id == -1)\
-    \ id = m++;\n        G[from].emplace_back(from, to, cost, id);\n        edges.emplace_back(from,\
+    \ G;\n    vector<Edge<T>> edges;\n    vector<int> deg, in_deg, out_deg;\n\n  \
+    \  Graph() {}\n    Graph(int N) \n    {\n        n = N; m = 0;\n        G = vector<vector<Edge<T>>>(N);\n\
+    \        deg = vector<int>(N, 0);\n        in_deg = vector<int>(N, 0);\n     \
+    \   out_deg = vector<int>(N, 0);\n    }\n\n    const vector<Edge<T>>& operator[](int\
+    \ x) const { return G[x]; }\n\n    // \u8FBA\u3092\u8FFD\u52A0\n    void add(int\
+    \ from, int to, T cost = 1, int id = -1)\\\n    {\n        if(id == -1) id = m++;\n\
+    \        G[from].emplace_back(from, to, cost, id);\n        edges.emplace_back(from,\
     \ to, cost, id);\n        out_deg[from]++, in_deg[to]++;\n        if(directed\
     \ == false) \n        {\n            G[to].emplace_back(to, from, cost, id);\n\
     \            out_deg[to]++, in_deg[from]++;\n        }\n    }\n\n    void mkg(int\
@@ -71,11 +90,12 @@ data:
     \u3092\u5165\u529B\u304B\u3089\u4F5C\u308B\n*/\ntemplate <typename T = long long,\
     \ bool directed = false>\nstruct Graph\n{\n    using cost_type = T;\n    int n,\
     \ m;\n    vector<vector<Edge<T>>> G;\n    vector<Edge<T>> edges;\n    vector<int>\
-    \ in_deg, out_deg;\n\n    Graph() {}\n    Graph(int N) \n    {\n        n = N;\
-    \ m = 0;\n        G = vector<vector<Edge<T>>>(N);\n        in_deg = vector<int>(N,\
-    \ 0);\n        out_deg = vector<int>(N, 0);\n    }\n\n    vector<Edge<T>> operator[](int\
-    \ x) const { return G[x]; }\n\n    void add(int from, int to, T cost = 1, int\
-    \ id = -1)\\\n    {\n        if(id == -1) id = m++;\n        G[from].emplace_back(from,\
+    \ deg, in_deg, out_deg;\n\n    Graph() {}\n    Graph(int N) \n    {\n        n\
+    \ = N; m = 0;\n        G = vector<vector<Edge<T>>>(N);\n        deg = vector<int>(N,\
+    \ 0);\n        in_deg = vector<int>(N, 0);\n        out_deg = vector<int>(N, 0);\n\
+    \    }\n\n    const vector<Edge<T>>& operator[](int x) const { return G[x]; }\n\
+    \n    // \u8FBA\u3092\u8FFD\u52A0\n    void add(int from, int to, T cost = 1,\
+    \ int id = -1)\\\n    {\n        if(id == -1) id = m++;\n        G[from].emplace_back(from,\
     \ to, cost, id);\n        edges.emplace_back(from, to, cost, id);\n        out_deg[from]++,\
     \ in_deg[to]++;\n        if(directed == false) \n        {\n            G[to].emplace_back(to,\
     \ from, cost, id);\n            out_deg[to]++, in_deg[from]++;\n        }\n  \
@@ -95,9 +115,15 @@ data:
   - graph/dist_bfs.hpp
   - graph/is_bipartite.hpp
   - graph/scc.hpp
-  timestamp: '2024-05-03 01:16:09+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  - graph/tree/EulerTour.hpp
+  - graph/tree/lca.hpp
+  - graph/tree/Rerooting_dp.hpp
+  - graph/tree/CompressTree.hpp
+  - graph/tree/tree_base.hpp
+  timestamp: '2024-06-17 21:21:08+09:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
+  - verify/library_checker/Lowest_Common_Ancestor.test.cpp
   - verify/library_checker/Strongly_Connected_Components.test.cpp
   - verify/test_atcoder/abc327_d.test.cpp
 documentation_of: graph/graph_base.hpp

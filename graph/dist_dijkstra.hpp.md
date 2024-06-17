@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: graph/graph_base.hpp
     title: graph/graph_base.hpp
   _extendedRequiredBy: []
@@ -25,12 +25,13 @@ data:
     \ weighted = false, int off = 1) n-1\u8FBA\u306E\u30B0\u30E9\u30D5\u3092\u5165\
     \u529B\u304B\u3089\u4F5C\u308B\n*/\ntemplate <typename T = long long, bool directed\
     \ = false>\nstruct Graph\n{\n    using cost_type = T;\n    int n, m;\n    vector<vector<Edge<T>>>\
-    \ G;\n    vector<Edge<T>> edges;\n    vector<int> in_deg, out_deg;\n\n    Graph()\
-    \ {}\n    Graph(int N) \n    {\n        n = N; m = 0;\n        G = vector<vector<Edge<T>>>(N);\n\
-    \        in_deg = vector<int>(N, 0);\n        out_deg = vector<int>(N, 0);\n \
-    \   }\n\n    vector<Edge<T>> operator[](int x) const { return G[x]; }\n\n    void\
-    \ add(int from, int to, T cost = 1, int id = -1)\\\n    {\n        if(id == -1)\
-    \ id = m++;\n        G[from].emplace_back(from, to, cost, id);\n        edges.emplace_back(from,\
+    \ G;\n    vector<Edge<T>> edges;\n    vector<int> deg, in_deg, out_deg;\n\n  \
+    \  Graph() {}\n    Graph(int N) \n    {\n        n = N; m = 0;\n        G = vector<vector<Edge<T>>>(N);\n\
+    \        deg = vector<int>(N, 0);\n        in_deg = vector<int>(N, 0);\n     \
+    \   out_deg = vector<int>(N, 0);\n    }\n\n    const vector<Edge<T>>& operator[](int\
+    \ x) const { return G[x]; }\n\n    // \u8FBA\u3092\u8FFD\u52A0\n    void add(int\
+    \ from, int to, T cost = 1, int id = -1)\\\n    {\n        if(id == -1) id = m++;\n\
+    \        G[from].emplace_back(from, to, cost, id);\n        edges.emplace_back(from,\
     \ to, cost, id);\n        out_deg[from]++, in_deg[to]++;\n        if(directed\
     \ == false) \n        {\n            G[to].emplace_back(to, from, cost, id);\n\
     \            out_deg[to]++, in_deg[from]++;\n        }\n    }\n\n    void mkg(int\
@@ -80,7 +81,7 @@ data:
   isVerificationFile: false
   path: graph/dist_dijkstra.hpp
   requiredBy: []
-  timestamp: '2024-05-03 01:16:09+09:00'
+  timestamp: '2024-06-17 21:21:08+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: graph/dist_dijkstra.hpp
