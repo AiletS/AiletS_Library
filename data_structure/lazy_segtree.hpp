@@ -32,14 +32,6 @@ struct lazy_segtree
 		lz[k] = OperatorMonoid::id();
 	}
 
-	void set(int p, T x) // d[p] = x
-	{
-		p += n;
-		for (int i = log; i >= 1; i--) push(p >> i);
-		d[p] = x;
-		for (int i = 1; i <= log; i++) update(p >> i);
-	}
-
   public:
 	lazy_segtree() : lazy_segtree(vector<T>(0)) {}
 	lazy_segtree(int k) : lazy_segtree(vector<T>(k, OperatorMonoid::e())) {}
@@ -87,6 +79,14 @@ struct lazy_segtree
 	}
 
 	T all_get() { return d[1]; }
+
+	void set(int p, T x) // d[p] = x
+	{
+		p += n;
+		for (int i = log; i >= 1; i--) push(p >> i);
+		d[p] = x;
+		for (int i = 1; i <= log; i++) update(p >> i);
+	}
 
 	void apply(int p, F f)  // d[p] = f(d[p])
 	{

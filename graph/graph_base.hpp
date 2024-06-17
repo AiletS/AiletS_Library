@@ -25,19 +25,21 @@ struct Graph
     int n, m;
     vector<vector<Edge<T>>> G;
     vector<Edge<T>> edges;
-    vector<int> in_deg, out_deg;
+    vector<int> deg, in_deg, out_deg;
 
     Graph() {}
     Graph(int N) 
     {
         n = N; m = 0;
         G = vector<vector<Edge<T>>>(N);
+        deg = vector<int>(N, 0);
         in_deg = vector<int>(N, 0);
         out_deg = vector<int>(N, 0);
     }
 
-    vector<Edge<T>> operator[](int x) const { return G[x]; }
+    const vector<Edge<T>>& operator[](int x) const { return G[x]; }
 
+    // 辺を追加
     void add(int from, int to, T cost = 1, int id = -1)\
     {
         if(id == -1) id = m++;
