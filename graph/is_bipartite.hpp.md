@@ -6,12 +6,12 @@ data:
     title: graph/graph_base.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: verify/test_atcoder/abc327_d.test.cpp
     title: verify/test_atcoder/abc327_d.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"graph/is_bipartite.hpp\"\n\n#line 2 \"graph/graph_base.hpp\"\
@@ -69,7 +69,7 @@ data:
   path: graph/is_bipartite.hpp
   requiredBy: []
   timestamp: '2024-06-17 21:21:08+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - verify/test_atcoder/abc327_d.test.cpp
 documentation_of: graph/is_bipartite.hpp

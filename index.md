@@ -35,7 +35,7 @@ data:
     - icon: ':warning:'
       path: data_structure/lazy_segtree.hpp
       title: data_structure/lazy_segtree.hpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: data_structure/merge_sort_tree.hpp
       title: data_structure/merge_sort_tree.hpp
     - icon: ':warning:'
@@ -74,7 +74,7 @@ data:
     - icon: ':question:'
       path: graph/graph_base.hpp
       title: graph/graph_base.hpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: graph/is_bipartite.hpp
       title: graph/is_bipartite.hpp
     - icon: ':heavy_check_mark:'
@@ -164,13 +164,13 @@ data:
       title: verify/library_checker/Unionfind.test.cpp
   - name: verify/test_atcoder
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: verify/test_atcoder/abc327_d.test.cpp
       title: verify/test_atcoder/abc327_d.test.cpp
     - icon: ':heavy_check_mark:'
       path: verify/test_atcoder/abc328_f.test.cpp
       title: verify/test_atcoder/abc328_f.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: verify/test_atcoder/abc351_f.test.cpp
       title: verify/test_atcoder/abc351_f.test.cpp
     - icon: ':x:'

@@ -8,7 +8,7 @@ data:
   - icon: ':warning:'
     path: graph/dist_dijkstra.hpp
     title: graph/dist_dijkstra.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/is_bipartite.hpp
     title: graph/is_bipartite.hpp
   - icon: ':heavy_check_mark:'
@@ -36,7 +36,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: verify/library_checker/Strongly_Connected_Components.test.cpp
     title: verify/library_checker/Strongly_Connected_Components.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: verify/test_atcoder/abc327_d.test.cpp
     title: verify/test_atcoder/abc327_d.test.cpp
   _isVerificationFailed: true
