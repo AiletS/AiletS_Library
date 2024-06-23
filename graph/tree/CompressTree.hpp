@@ -2,18 +2,17 @@
 
 #include "graph/tree/lca.hpp"
 
-// Compress Tree or Auxiliary Tree 
+// Compress Tree or Auxiliary Tree
 // CompressTree(Tree g), get(vector<int> X)
-// 頂点集合 X をもとに圧縮した木を返す : 
+// 頂点集合 X をもとに圧縮した木を返す :
 // [V, Tree] V は Tree の頂点の番号に対応している
 // |Tree| <= 2|X| - 1, 生成に O(|X|(log|X| + log|N|))
 template <class TREE>
 struct CompressTree
 {
     CompressTree() {}
-    CompressTree(const TREE& _g) 
+    CompressTree(TREE& _g) : g(_g), n(g.n)
     {
-        g = _g; n = g.n;
         lca = LCA(g);
         pre_ord.resize(n);
         int now = 0;
@@ -29,7 +28,8 @@ struct CompressTree
         X.erase(unique(X.begin(), X.end()), X.end());
         tn = X.size();
 
-        TREE res(tn, 0);
+        Graph _g(tn);
+        TREE res(_g);
         stack<int> S; S.push(0);
         for(int i = 1; i < tn; i++)
         {
@@ -41,7 +41,7 @@ struct CompressTree
     }
 
   private:
-    TREE g;
+    TREE& g;
     int n;
     vector<int> pre_ord;
     LCA<TREE> lca;

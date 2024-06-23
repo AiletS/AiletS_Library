@@ -26,7 +26,7 @@ struct LCA
     SparseTable<Monoid_LCA<pair<int, int>>> sp;
 
     LCA() {}
-    LCA(TREE& _g) : n(_g.n), g(_g), in(n), out(n) 
+    LCA(TREE& _g) : n(_g.n), g(_g), in(n), out(n)
     {
         tie(in, out, v) = EulerTour(_g);
         sp = SparseTable<Monoid_LCA<pair<int, int>>>(v);

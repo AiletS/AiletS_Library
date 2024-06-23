@@ -5,8 +5,9 @@
 void solve()
 {
     int n, q; cin >> n >> q;
-    Tree g(n); g.mkg_ancestor(false, 0);
-    LCA lca(g);
+    Graph g(n); g.mkg_ancestor();
+    Tree<decltype(g)> tree(g);
+    LCA lca(tree);
     while(q--)
     {
         int u, v; cin >> u >> v;

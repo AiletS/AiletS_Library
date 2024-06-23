@@ -11,7 +11,7 @@ template <class TREE>
 tuple<vector<int>, vector<int>, vector<pair<int, int>>>
 EulerTour(const TREE& g)
 {
-    const int n = g.n, m = g.m;
+    const int n = g.n;
     vector<int> in(n), out(n);
     vector<pair<int, int>> v;
 
