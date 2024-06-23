@@ -1,19 +1,19 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: data_structure/SparseTable.hpp
     title: data_structure/SparseTable.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: graph/graph_base.hpp
     title: graph/graph_base.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/tree/EulerTour.hpp
     title: graph/tree/EulerTour.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/tree/lca.hpp
     title: graph/tree/lca.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/tree/tree_base.hpp
     title: graph/tree/tree_base.hpp
   - icon: ':question:'
@@ -21,9 +21,9 @@ data:
     title: my_template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/lca
@@ -102,7 +102,7 @@ data:
     \ 4 \"graph/tree/EulerTour.hpp\"\n\n/*\n\u6728\u4E0A\u3067Euler Tour\u3092\u884C\
     \u3046\ntuple<vector<int>, vector<int>, vector<pair<int, int>>>\n= {in, out, {depth,\
     \ \u9802\u70B9}}\n*/\ntemplate <class TREE>\ntuple<vector<int>, vector<int>, vector<pair<int,\
-    \ int>>>\nEulerTour(const TREE& g)\n{\n    const int n = g.n, m = g.m;\n    vector<int>\
+    \ int>>>\nEulerTour(const TREE& g)\n{\n    const int n = g.n;\n    vector<int>\
     \ in(n), out(n);\n    vector<pair<int, int>> v;\n\n    function<void(int, int,\
     \ int)> dfs = [&](int U, int V, int depth) -> void\n    {\n        assert(U >=\
     \ 0 && U < n);\n        in[U] = v.size();\n        v.emplace_back(depth, U);\n\
@@ -130,22 +130,23 @@ data:
     \ TYPE e() { return make_pair(infty<int>, -1); };\n};\n\ntemplate <class TREE>\n\
     struct LCA\n{\n    TREE& g;\n    int n;\n    vector<int> in, out;\n    vector<pair<int,\
     \ int>> v;\n    SparseTable<Monoid_LCA<pair<int, int>>> sp;\n\n    LCA() {}\n\
-    \    LCA(TREE& _g) : n(_g.n), g(_g), in(n), out(n) \n    {\n        tie(in, out,\
+    \    LCA(TREE& _g) : n(_g.n), g(_g), in(n), out(n)\n    {\n        tie(in, out,\
     \ v) = EulerTour(_g);\n        sp = SparseTable<Monoid_LCA<pair<int, int>>>(v);\n\
     \    }\n\n    int get(int x, int y)\n    {\n        int l = in[x], r = in[y];\n\
     \        if(l > r) swap(l, r);\n        return sp.get(l, r + 1).second;\n    }\n\
     };\n#line 4 \"verify/library_checker/Lowest_Common_Ancestor.test.cpp\"\n\nvoid\
-    \ solve()\n{\n    int n, q; cin >> n >> q;\n    Tree g(n); g.mkg_ancestor(false,\
-    \ 0);\n    LCA lca(g);\n    while(q--)\n    {\n        int u, v; cin >> u >> v;\n\
-    \        cout << lca.get(u, v) << '\\n';\n    }\n}\n\nint main()\n{\n    ios::sync_with_stdio(false);\n\
-    \    std::cin.tie(nullptr);\n    int t = 1;\n    //cin >> t;\n    while (t--)\
-    \ solve();\n}\n"
+    \ solve()\n{\n    int n, q; cin >> n >> q;\n    Graph g(n); g.mkg_ancestor(false,\
+    \ 0);\n    Tree<decltype(g)> tree(g);\n    LCA lca(tree);\n    while(q--)\n  \
+    \  {\n        int u, v; cin >> u >> v;\n        cout << lca.get(u, v) << '\\n';\n\
+    \    }\n}\n\nint main()\n{\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n\
+    \    int t = 1;\n    //cin >> t;\n    while (t--) solve();\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/lca\"\n#include \"my_template.hpp\"\
     \n#include \"graph/tree/lca.hpp\"\n\nvoid solve()\n{\n    int n, q; cin >> n >>\
-    \ q;\n    Tree g(n); g.mkg_ancestor(false, 0);\n    LCA lca(g);\n    while(q--)\n\
-    \    {\n        int u, v; cin >> u >> v;\n        cout << lca.get(u, v) << '\\\
-    n';\n    }\n}\n\nint main()\n{\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n\
-    \    int t = 1;\n    //cin >> t;\n    while (t--) solve();\n}"
+    \ q;\n    Graph g(n); g.mkg_ancestor(false, 0);\n    Tree<decltype(g)> tree(g);\n\
+    \    LCA lca(tree);\n    while(q--)\n    {\n        int u, v; cin >> u >> v;\n\
+    \        cout << lca.get(u, v) << '\\n';\n    }\n}\n\nint main()\n{\n    ios::sync_with_stdio(false);\n\
+    \    std::cin.tie(nullptr);\n    int t = 1;\n    //cin >> t;\n    while (t--)\
+    \ solve();\n}"
   dependsOn:
   - my_template.hpp
   - graph/tree/lca.hpp
@@ -156,8 +157,8 @@ data:
   isVerificationFile: true
   path: verify/library_checker/Lowest_Common_Ancestor.test.cpp
   requiredBy: []
-  timestamp: '2024-06-17 21:21:08+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2024-06-23 20:13:39+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/library_checker/Lowest_Common_Ancestor.test.cpp
 layout: document

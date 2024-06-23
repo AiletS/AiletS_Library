@@ -60,8 +60,8 @@ data:
   timestamp: '2024-05-03 01:16:09+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - verify/library_checker/Static_RMQ.test.cpp
   - verify/test_atcoder/abc356_f.test.cpp
+  - verify/library_checker/Static_RMQ.test.cpp
 documentation_of: data_structure/segtree.hpp
 layout: document
 redirect_from:

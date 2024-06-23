@@ -5,16 +5,16 @@ data:
   - icon: ':warning:'
     path: graph/tree/CompressTree.hpp
     title: graph/tree/CompressTree.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/tree/lca.hpp
     title: graph/tree/lca.hpp
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: verify/library_checker/Lowest_Common_Ancestor.test.cpp
     title: verify/library_checker/Lowest_Common_Ancestor.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"data_structure/SparseTable.hpp\"\n\n/*\n\u51AA\u7B49\u306A\
@@ -51,10 +51,10 @@ data:
   isVerificationFile: false
   path: data_structure/SparseTable.hpp
   requiredBy:
-  - graph/tree/lca.hpp
   - graph/tree/CompressTree.hpp
+  - graph/tree/lca.hpp
   timestamp: '2024-05-03 01:16:09+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - verify/library_checker/Lowest_Common_Ancestor.test.cpp
 documentation_of: data_structure/SparseTable.hpp

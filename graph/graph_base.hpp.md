@@ -17,20 +17,20 @@ data:
   - icon: ':warning:'
     path: graph/tree/CompressTree.hpp
     title: graph/tree/CompressTree.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/tree/EulerTour.hpp
     title: graph/tree/EulerTour.hpp
   - icon: ':warning:'
     path: graph/tree/Rerooting_dp.hpp
     title: graph/tree/Rerooting_dp.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/tree/lca.hpp
     title: graph/tree/lca.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/tree/tree_base.hpp
     title: graph/tree/tree_base.hpp
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: verify/library_checker/Lowest_Common_Ancestor.test.cpp
     title: verify/library_checker/Lowest_Common_Ancestor.test.cpp
   - icon: ':heavy_check_mark:'
@@ -39,9 +39,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: verify/test_atcoder/abc327_d.test.cpp
     title: verify/test_atcoder/abc327_d.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"graph/graph_base.hpp\"\n\ntemplate <typename T>\nstruct\
@@ -111,21 +111,21 @@ data:
   isVerificationFile: false
   path: graph/graph_base.hpp
   requiredBy:
-  - graph/dist_dijkstra.hpp
-  - graph/dist_bfs.hpp
   - graph/is_bipartite.hpp
+  - graph/dist_dijkstra.hpp
   - graph/scc.hpp
   - graph/tree/EulerTour.hpp
-  - graph/tree/lca.hpp
-  - graph/tree/Rerooting_dp.hpp
   - graph/tree/CompressTree.hpp
+  - graph/tree/lca.hpp
   - graph/tree/tree_base.hpp
+  - graph/tree/Rerooting_dp.hpp
+  - graph/dist_bfs.hpp
   timestamp: '2024-06-17 21:21:08+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - verify/test_atcoder/abc327_d.test.cpp
   - verify/library_checker/Lowest_Common_Ancestor.test.cpp
   - verify/library_checker/Strongly_Connected_Components.test.cpp
-  - verify/test_atcoder/abc327_d.test.cpp
 documentation_of: graph/graph_base.hpp
 layout: document
 redirect_from:

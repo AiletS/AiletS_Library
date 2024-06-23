@@ -1,19 +1,19 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: data_structure/SparseTable.hpp
     title: data_structure/SparseTable.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: graph/graph_base.hpp
     title: graph/graph_base.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/tree/EulerTour.hpp
     title: graph/tree/EulerTour.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/tree/lca.hpp
     title: graph/tree/lca.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/tree/tree_base.hpp
     title: graph/tree/tree_base.hpp
   _extendedRequiredBy: []
@@ -68,7 +68,7 @@ data:
     \ 4 \"graph/tree/EulerTour.hpp\"\n\n/*\n\u6728\u4E0A\u3067Euler Tour\u3092\u884C\
     \u3046\ntuple<vector<int>, vector<int>, vector<pair<int, int>>>\n= {in, out, {depth,\
     \ \u9802\u70B9}}\n*/\ntemplate <class TREE>\ntuple<vector<int>, vector<int>, vector<pair<int,\
-    \ int>>>\nEulerTour(const TREE& g)\n{\n    const int n = g.n, m = g.m;\n    vector<int>\
+    \ int>>>\nEulerTour(const TREE& g)\n{\n    const int n = g.n;\n    vector<int>\
     \ in(n), out(n);\n    vector<pair<int, int>> v;\n\n    function<void(int, int,\
     \ int)> dfs = [&](int U, int V, int depth) -> void\n    {\n        assert(U >=\
     \ 0 && U < n);\n        in[U] = v.size();\n        v.emplace_back(depth, U);\n\
@@ -96,56 +96,55 @@ data:
     \ TYPE e() { return make_pair(infty<int>, -1); };\n};\n\ntemplate <class TREE>\n\
     struct LCA\n{\n    TREE& g;\n    int n;\n    vector<int> in, out;\n    vector<pair<int,\
     \ int>> v;\n    SparseTable<Monoid_LCA<pair<int, int>>> sp;\n\n    LCA() {}\n\
-    \    LCA(TREE& _g) : n(_g.n), g(_g), in(n), out(n) \n    {\n        tie(in, out,\
+    \    LCA(TREE& _g) : n(_g.n), g(_g), in(n), out(n)\n    {\n        tie(in, out,\
     \ v) = EulerTour(_g);\n        sp = SparseTable<Monoid_LCA<pair<int, int>>>(v);\n\
     \    }\n\n    int get(int x, int y)\n    {\n        int l = in[x], r = in[y];\n\
     \        if(l > r) swap(l, r);\n        return sp.get(l, r + 1).second;\n    }\n\
-    };\n#line 4 \"graph/tree/CompressTree.hpp\"\n\n// Compress Tree or Auxiliary Tree\
-    \ \n// CompressTree(Tree g), get(vector<int> X)\n// \u9802\u70B9\u96C6\u5408 X\
-    \ \u3092\u3082\u3068\u306B\u5727\u7E2E\u3057\u305F\u6728\u3092\u8FD4\u3059 : \n\
+    };\n#line 4 \"graph/tree/CompressTree.hpp\"\n\n// Compress Tree or Auxiliary Tree\n\
+    // CompressTree(Tree g), get(vector<int> X)\n// \u9802\u70B9\u96C6\u5408 X \u3092\
+    \u3082\u3068\u306B\u5727\u7E2E\u3057\u305F\u6728\u3092\u8FD4\u3059 :\n// [V, Tree]\
+    \ V \u306F Tree \u306E\u9802\u70B9\u306E\u756A\u53F7\u306B\u5BFE\u5FDC\u3057\u3066\
+    \u3044\u308B\n// |Tree| <= 2|X| - 1, \u751F\u6210\u306B O(|X|(log|X| + log|N|))\n\
+    template <class TREE>\nstruct CompressTree\n{\n    CompressTree() {}\n    CompressTree(TREE&\
+    \ _g) : g(_g), n(g.n)\n    {\n        lca = LCA(g);\n        pre_ord.resize(n);\n\
+    \        int now = 0;\n        dfs(g.root, -1, now);\n    }\n\n    pair<vector<int>,\
+    \ TREE> get(vector<int> X)\n    {\n        int tn = X.size();\n        sort(X.begin(),\
+    \ X.end(), [&](int& l, int& r) { return pre_ord[l] < pre_ord[r]; });\n       \
+    \ for(int i = 0; i < tn - 1; i++) X.push_back(lca.get(X[i], X[i + 1]));\n    \
+    \    sort(X.begin(), X.end(), [&](int& l, int& r) { return pre_ord[l] < pre_ord[r];\
+    \ });\n        X.erase(unique(X.begin(), X.end()), X.end());\n        tn = X.size();\n\
+    \n        Graph _g(tn);\n        TREE res(_g);\n        stack<int> S; S.push(0);\n\
+    \        for(int i = 1; i < tn; i++)\n        {\n            while(S.size() &&\
+    \ lca.out[X[S.top()]] < lca.in[X[i]]) S.pop();\n            res.add(S.top(), i);\n\
+    \            S.push(i);\n        }\n        return {X, res};\n    }\n\n  private:\n\
+    \    TREE& g;\n    int n;\n    vector<int> pre_ord;\n    LCA<TREE> lca;\n\n  \
+    \  function<void(int, int, int&)> dfs = [&](int U, int V, int& now) -> void\n\
+    \    {\n        assert(U >= 0 && U < n);\n        pre_ord[U] = now++;\n      \
+    \  for(auto [from, to, _, __] : g[U])\n        {\n            if(to == V) continue;\n\
+    \            dfs(to, from, now);\n        }\n    };\n};\n"
+  code: "#pragma once\n\n#include \"graph/tree/lca.hpp\"\n\n// Compress Tree or Auxiliary\
+    \ Tree\n// CompressTree(Tree g), get(vector<int> X)\n// \u9802\u70B9\u96C6\u5408\
+    \ X \u3092\u3082\u3068\u306B\u5727\u7E2E\u3057\u305F\u6728\u3092\u8FD4\u3059 :\n\
     // [V, Tree] V \u306F Tree \u306E\u9802\u70B9\u306E\u756A\u53F7\u306B\u5BFE\u5FDC\
     \u3057\u3066\u3044\u308B\n// |Tree| <= 2|X| - 1, \u751F\u6210\u306B O(|X|(log|X|\
     \ + log|N|))\ntemplate <class TREE>\nstruct CompressTree\n{\n    CompressTree()\
-    \ {}\n    CompressTree(const TREE& _g) \n    {\n        g = _g; n = g.n;\n   \
-    \     lca = LCA(g);\n        pre_ord.resize(n);\n        int now = 0;\n      \
-    \  dfs(g.root, -1, now);\n    }\n\n    pair<vector<int>, TREE> get(vector<int>\
-    \ X)\n    {\n        int tn = X.size();\n        sort(X.begin(), X.end(), [&](int&\
-    \ l, int& r) { return pre_ord[l] < pre_ord[r]; });\n        for(int i = 0; i <\
-    \ tn - 1; i++) X.push_back(lca.get(X[i], X[i + 1]));\n        sort(X.begin(),\
-    \ X.end(), [&](int& l, int& r) { return pre_ord[l] < pre_ord[r]; });\n       \
-    \ X.erase(unique(X.begin(), X.end()), X.end());\n        tn = X.size();\n\n  \
-    \      TREE res(tn, 0);\n        stack<int> S; S.push(0);\n        for(int i =\
-    \ 1; i < tn; i++)\n        {\n            while(S.size() && lca.out[X[S.top()]]\
-    \ < lca.in[X[i]]) S.pop();\n            res.add(S.top(), i);\n            S.push(i);\n\
-    \        }\n        return {X, res};\n    }\n\n  private:\n    TREE g;\n    int\
-    \ n;\n    vector<int> pre_ord;\n    LCA<TREE> lca;\n\n    function<void(int, int,\
-    \ int&)> dfs = [&](int U, int V, int& now) -> void\n    {\n        assert(U >=\
-    \ 0 && U < n);\n        pre_ord[U] = now++;\n        for(auto [from, to, _, __]\
-    \ : g[U])\n        {\n            if(to == V) continue;\n            dfs(to, from,\
-    \ now);\n        }\n    };\n};\n"
-  code: "#pragma once\n\n#include \"graph/tree/lca.hpp\"\n\n// Compress Tree or Auxiliary\
-    \ Tree \n// CompressTree(Tree g), get(vector<int> X)\n// \u9802\u70B9\u96C6\u5408\
-    \ X \u3092\u3082\u3068\u306B\u5727\u7E2E\u3057\u305F\u6728\u3092\u8FD4\u3059 :\
-    \ \n// [V, Tree] V \u306F Tree \u306E\u9802\u70B9\u306E\u756A\u53F7\u306B\u5BFE\
-    \u5FDC\u3057\u3066\u3044\u308B\n// |Tree| <= 2|X| - 1, \u751F\u6210\u306B O(|X|(log|X|\
-    \ + log|N|))\ntemplate <class TREE>\nstruct CompressTree\n{\n    CompressTree()\
-    \ {}\n    CompressTree(const TREE& _g) \n    {\n        g = _g; n = g.n;\n   \
-    \     lca = LCA(g);\n        pre_ord.resize(n);\n        int now = 0;\n      \
-    \  dfs(g.root, -1, now);\n    }\n\n    pair<vector<int>, TREE> get(vector<int>\
-    \ X)\n    {\n        int tn = X.size();\n        sort(X.begin(), X.end(), [&](int&\
-    \ l, int& r) { return pre_ord[l] < pre_ord[r]; });\n        for(int i = 0; i <\
-    \ tn - 1; i++) X.push_back(lca.get(X[i], X[i + 1]));\n        sort(X.begin(),\
-    \ X.end(), [&](int& l, int& r) { return pre_ord[l] < pre_ord[r]; });\n       \
-    \ X.erase(unique(X.begin(), X.end()), X.end());\n        tn = X.size();\n\n  \
-    \      TREE res(tn, 0);\n        stack<int> S; S.push(0);\n        for(int i =\
-    \ 1; i < tn; i++)\n        {\n            while(S.size() && lca.out[X[S.top()]]\
-    \ < lca.in[X[i]]) S.pop();\n            res.add(S.top(), i);\n            S.push(i);\n\
-    \        }\n        return {X, res};\n    }\n\n  private:\n    TREE g;\n    int\
-    \ n;\n    vector<int> pre_ord;\n    LCA<TREE> lca;\n\n    function<void(int, int,\
-    \ int&)> dfs = [&](int U, int V, int& now) -> void\n    {\n        assert(U >=\
-    \ 0 && U < n);\n        pre_ord[U] = now++;\n        for(auto [from, to, _, __]\
-    \ : g[U])\n        {\n            if(to == V) continue;\n            dfs(to, from,\
-    \ now);\n        }\n    };\n};"
+    \ {}\n    CompressTree(TREE& _g) : g(_g), n(g.n)\n    {\n        lca = LCA(g);\n\
+    \        pre_ord.resize(n);\n        int now = 0;\n        dfs(g.root, -1, now);\n\
+    \    }\n\n    pair<vector<int>, TREE> get(vector<int> X)\n    {\n        int tn\
+    \ = X.size();\n        sort(X.begin(), X.end(), [&](int& l, int& r) { return pre_ord[l]\
+    \ < pre_ord[r]; });\n        for(int i = 0; i < tn - 1; i++) X.push_back(lca.get(X[i],\
+    \ X[i + 1]));\n        sort(X.begin(), X.end(), [&](int& l, int& r) { return pre_ord[l]\
+    \ < pre_ord[r]; });\n        X.erase(unique(X.begin(), X.end()), X.end());\n \
+    \       tn = X.size();\n\n        Graph _g(tn);\n        TREE res(_g);\n     \
+    \   stack<int> S; S.push(0);\n        for(int i = 1; i < tn; i++)\n        {\n\
+    \            while(S.size() && lca.out[X[S.top()]] < lca.in[X[i]]) S.pop();\n\
+    \            res.add(S.top(), i);\n            S.push(i);\n        }\n       \
+    \ return {X, res};\n    }\n\n  private:\n    TREE& g;\n    int n;\n    vector<int>\
+    \ pre_ord;\n    LCA<TREE> lca;\n\n    function<void(int, int, int&)> dfs = [&](int\
+    \ U, int V, int& now) -> void\n    {\n        assert(U >= 0 && U < n);\n     \
+    \   pre_ord[U] = now++;\n        for(auto [from, to, _, __] : g[U])\n        {\n\
+    \            if(to == V) continue;\n            dfs(to, from, now);\n        }\n\
+    \    };\n};"
   dependsOn:
   - graph/tree/lca.hpp
   - graph/tree/tree_base.hpp
@@ -155,7 +154,7 @@ data:
   isVerificationFile: false
   path: graph/tree/CompressTree.hpp
   requiredBy: []
-  timestamp: '2024-06-17 21:21:08+09:00'
+  timestamp: '2024-06-23 20:10:17+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: graph/tree/CompressTree.hpp

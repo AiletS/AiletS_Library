@@ -23,7 +23,7 @@ data:
     - icon: ':warning:'
       path: data_structure/Matrix.hpp
       title: data_structure/Matrix.hpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: data_structure/SparseTable.hpp
       title: data_structure/SparseTable.hpp
     - icon: ':heavy_check_mark:'
@@ -71,7 +71,7 @@ data:
     - icon: ':warning:'
       path: graph/dist_dijkstra.hpp
       title: graph/dist_dijkstra.hpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: graph/graph_base.hpp
       title: graph/graph_base.hpp
     - icon: ':heavy_check_mark:'
@@ -85,16 +85,16 @@ data:
     - icon: ':warning:'
       path: graph/tree/CompressTree.hpp
       title: graph/tree/CompressTree.hpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: graph/tree/EulerTour.hpp
       title: graph/tree/EulerTour.hpp
     - icon: ':warning:'
       path: graph/tree/Rerooting_dp.hpp
       title: graph/tree/Rerooting_dp.hpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: graph/tree/lca.hpp
       title: graph/tree/lca.hpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: graph/tree/tree_base.hpp
       title: graph/tree/tree_base.hpp
   - name: math
@@ -147,7 +147,7 @@ data:
   verificationCategories:
   - name: verify/library_checker
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: verify/library_checker/Lowest_Common_Ancestor.test.cpp
       title: verify/library_checker/Lowest_Common_Ancestor.test.cpp
     - icon: ':heavy_check_mark:'

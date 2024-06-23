@@ -1,26 +1,26 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: graph/graph_base.hpp
     title: graph/graph_base.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/tree/tree_base.hpp
     title: graph/tree/tree_base.hpp
   _extendedRequiredBy:
   - icon: ':warning:'
     path: graph/tree/CompressTree.hpp
     title: graph/tree/CompressTree.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/tree/lca.hpp
     title: graph/tree/lca.hpp
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: verify/library_checker/Lowest_Common_Ancestor.test.cpp
     title: verify/library_checker/Lowest_Common_Ancestor.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"graph/tree/EulerTour.hpp\"\n\n#line 2 \"graph/tree/tree_base.hpp\"\
@@ -68,34 +68,34 @@ data:
     \u4E0A\u3067Euler Tour\u3092\u884C\u3046\ntuple<vector<int>, vector<int>, vector<pair<int,\
     \ int>>>\n= {in, out, {depth, \u9802\u70B9}}\n*/\ntemplate <class TREE>\ntuple<vector<int>,\
     \ vector<int>, vector<pair<int, int>>>\nEulerTour(const TREE& g)\n{\n    const\
-    \ int n = g.n, m = g.m;\n    vector<int> in(n), out(n);\n    vector<pair<int,\
-    \ int>> v;\n\n    function<void(int, int, int)> dfs = [&](int U, int V, int depth)\
-    \ -> void\n    {\n        assert(U >= 0 && U < n);\n        in[U] = v.size();\n\
-    \        v.emplace_back(depth, U);\n        for(auto [from, to, _, __] : g[U])\n\
-    \        {\n            if(to == V) continue;\n            dfs(to, from, depth\
-    \ + 1);\n        }\n        out[U] = v.size();\n        v.emplace_back(depth -\
-    \ 1, V);\n    };\n\n    dfs(g.root, -1, 0);\n    return { in, out, v };\n}\n"
+    \ int n = g.n;\n    vector<int> in(n), out(n);\n    vector<pair<int, int>> v;\n\
+    \n    function<void(int, int, int)> dfs = [&](int U, int V, int depth) -> void\n\
+    \    {\n        assert(U >= 0 && U < n);\n        in[U] = v.size();\n        v.emplace_back(depth,\
+    \ U);\n        for(auto [from, to, _, __] : g[U])\n        {\n            if(to\
+    \ == V) continue;\n            dfs(to, from, depth + 1);\n        }\n        out[U]\
+    \ = v.size();\n        v.emplace_back(depth - 1, V);\n    };\n\n    dfs(g.root,\
+    \ -1, 0);\n    return { in, out, v };\n}\n"
   code: "#pragma once\n\n#include \"graph/tree/tree_base.hpp\"\n\n/*\n\u6728\u4E0A\
     \u3067Euler Tour\u3092\u884C\u3046\ntuple<vector<int>, vector<int>, vector<pair<int,\
     \ int>>>\n= {in, out, {depth, \u9802\u70B9}}\n*/\ntemplate <class TREE>\ntuple<vector<int>,\
     \ vector<int>, vector<pair<int, int>>>\nEulerTour(const TREE& g)\n{\n    const\
-    \ int n = g.n, m = g.m;\n    vector<int> in(n), out(n);\n    vector<pair<int,\
-    \ int>> v;\n\n    function<void(int, int, int)> dfs = [&](int U, int V, int depth)\
-    \ -> void\n    {\n        assert(U >= 0 && U < n);\n        in[U] = v.size();\n\
-    \        v.emplace_back(depth, U);\n        for(auto [from, to, _, __] : g[U])\n\
-    \        {\n            if(to == V) continue;\n            dfs(to, from, depth\
-    \ + 1);\n        }\n        out[U] = v.size();\n        v.emplace_back(depth -\
-    \ 1, V);\n    };\n\n    dfs(g.root, -1, 0);\n    return { in, out, v };\n}"
+    \ int n = g.n;\n    vector<int> in(n), out(n);\n    vector<pair<int, int>> v;\n\
+    \n    function<void(int, int, int)> dfs = [&](int U, int V, int depth) -> void\n\
+    \    {\n        assert(U >= 0 && U < n);\n        in[U] = v.size();\n        v.emplace_back(depth,\
+    \ U);\n        for(auto [from, to, _, __] : g[U])\n        {\n            if(to\
+    \ == V) continue;\n            dfs(to, from, depth + 1);\n        }\n        out[U]\
+    \ = v.size();\n        v.emplace_back(depth - 1, V);\n    };\n\n    dfs(g.root,\
+    \ -1, 0);\n    return { in, out, v };\n}"
   dependsOn:
   - graph/tree/tree_base.hpp
   - graph/graph_base.hpp
   isVerificationFile: false
   path: graph/tree/EulerTour.hpp
   requiredBy:
-  - graph/tree/lca.hpp
   - graph/tree/CompressTree.hpp
-  timestamp: '2024-06-17 21:21:08+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  - graph/tree/lca.hpp
+  timestamp: '2024-06-23 20:10:17+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - verify/library_checker/Lowest_Common_Ancestor.test.cpp
 documentation_of: graph/tree/EulerTour.hpp

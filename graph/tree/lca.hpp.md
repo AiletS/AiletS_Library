@@ -1,16 +1,16 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: data_structure/SparseTable.hpp
     title: data_structure/SparseTable.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: graph/graph_base.hpp
     title: graph/graph_base.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/tree/EulerTour.hpp
     title: graph/tree/EulerTour.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/tree/tree_base.hpp
     title: graph/tree/tree_base.hpp
   _extendedRequiredBy:
@@ -18,12 +18,12 @@ data:
     path: graph/tree/CompressTree.hpp
     title: graph/tree/CompressTree.hpp
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: verify/library_checker/Lowest_Common_Ancestor.test.cpp
     title: verify/library_checker/Lowest_Common_Ancestor.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"graph/tree/lca.hpp\"\n\n#line 2 \"graph/tree/tree_base.hpp\"\
@@ -71,7 +71,7 @@ data:
     \ 4 \"graph/tree/EulerTour.hpp\"\n\n/*\n\u6728\u4E0A\u3067Euler Tour\u3092\u884C\
     \u3046\ntuple<vector<int>, vector<int>, vector<pair<int, int>>>\n= {in, out, {depth,\
     \ \u9802\u70B9}}\n*/\ntemplate <class TREE>\ntuple<vector<int>, vector<int>, vector<pair<int,\
-    \ int>>>\nEulerTour(const TREE& g)\n{\n    const int n = g.n, m = g.m;\n    vector<int>\
+    \ int>>>\nEulerTour(const TREE& g)\n{\n    const int n = g.n;\n    vector<int>\
     \ in(n), out(n);\n    vector<pair<int, int>> v;\n\n    function<void(int, int,\
     \ int)> dfs = [&](int U, int V, int depth) -> void\n    {\n        assert(U >=\
     \ 0 && U < n);\n        in[U] = v.size();\n        v.emplace_back(depth, U);\n\
@@ -99,7 +99,7 @@ data:
     \ TYPE e() { return make_pair(infty<int>, -1); };\n};\n\ntemplate <class TREE>\n\
     struct LCA\n{\n    TREE& g;\n    int n;\n    vector<int> in, out;\n    vector<pair<int,\
     \ int>> v;\n    SparseTable<Monoid_LCA<pair<int, int>>> sp;\n\n    LCA() {}\n\
-    \    LCA(TREE& _g) : n(_g.n), g(_g), in(n), out(n) \n    {\n        tie(in, out,\
+    \    LCA(TREE& _g) : n(_g.n), g(_g), in(n), out(n)\n    {\n        tie(in, out,\
     \ v) = EulerTour(_g);\n        sp = SparseTable<Monoid_LCA<pair<int, int>>>(v);\n\
     \    }\n\n    int get(int x, int y)\n    {\n        int l = in[x], r = in[y];\n\
     \        if(l > r) swap(l, r);\n        return sp.get(l, r + 1).second;\n    }\n\
@@ -111,7 +111,7 @@ data:
     \ TYPE e() { return make_pair(infty<int>, -1); };\n};\n\ntemplate <class TREE>\n\
     struct LCA\n{\n    TREE& g;\n    int n;\n    vector<int> in, out;\n    vector<pair<int,\
     \ int>> v;\n    SparseTable<Monoid_LCA<pair<int, int>>> sp;\n\n    LCA() {}\n\
-    \    LCA(TREE& _g) : n(_g.n), g(_g), in(n), out(n) \n    {\n        tie(in, out,\
+    \    LCA(TREE& _g) : n(_g.n), g(_g), in(n), out(n)\n    {\n        tie(in, out,\
     \ v) = EulerTour(_g);\n        sp = SparseTable<Monoid_LCA<pair<int, int>>>(v);\n\
     \    }\n\n    int get(int x, int y)\n    {\n        int l = in[x], r = in[y];\n\
     \        if(l > r) swap(l, r);\n        return sp.get(l, r + 1).second;\n    }\n\
@@ -125,8 +125,8 @@ data:
   path: graph/tree/lca.hpp
   requiredBy:
   - graph/tree/CompressTree.hpp
-  timestamp: '2024-06-17 21:21:08+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2024-06-23 20:10:17+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - verify/library_checker/Lowest_Common_Ancestor.test.cpp
 documentation_of: graph/tree/lca.hpp
