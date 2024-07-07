@@ -6,7 +6,7 @@ data:
     - icon: ':warning:'
       path: base.cpp
       title: base.cpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: my_template.hpp
       title: my_template.hpp
   - name: data_structure
@@ -14,7 +14,7 @@ data:
     - icon: ':warning:'
       path: data_structure/CHT.hpp
       title: data_structure/CHT.hpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: data_structure/Coordinate_Compression.hpp
       title: data_structure/Coordinate_Compression.hpp
     - icon: ':heavy_check_mark:'
@@ -41,13 +41,13 @@ data:
     - icon: ':warning:'
       path: data_structure/mint.hpp
       title: data_structure/mint.hpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: data_structure/range_set.hpp
       title: data_structure/range_set.hpp
     - icon: ':warning:'
       path: data_structure/rational.hpp
       title: data_structure/rational.hpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: data_structure/segtree.hpp
       title: data_structure/segtree.hpp
   - name: flow
@@ -77,6 +77,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: graph/is_bipartite.hpp
       title: graph/is_bipartite.hpp
+    - icon: ':warning:'
+      path: graph/restore_path.hpp
+      title: graph/restore_path.hpp
     - icon: ':heavy_check_mark:'
       path: graph/scc.hpp
       title: graph/scc.hpp
@@ -97,6 +100,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: graph/tree/tree_base.hpp
       title: graph/tree/tree_base.hpp
+    - icon: ':warning:'
+      path: graph/tree/tree_diameter.hpp
+      title: graph/tree/tree_diameter.hpp
   - name: math
     pages:
     - icon: ':warning:'
@@ -173,7 +179,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: verify/test_atcoder/abc351_f.test.cpp
       title: verify/test_atcoder/abc351_f.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: verify/test_atcoder/abc356_f.test.cpp
       title: verify/test_atcoder/abc356_f.test.cpp
 layout: toppage

@@ -30,12 +30,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: verify/test_atcoder/abc351_f.test.cpp
     title: verify/test_atcoder/abc351_f.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: verify/test_atcoder/abc356_f.test.cpp
     title: verify/test_atcoder/abc356_f.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: '#line 2 "my_template.hpp"
@@ -180,7 +180,7 @@ data:
   requiredBy:
   - base.cpp
   timestamp: '2024-05-03 01:16:09+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - verify/test_atcoder/abc328_f.test.cpp
   - verify/test_atcoder/abc356_f.test.cpp

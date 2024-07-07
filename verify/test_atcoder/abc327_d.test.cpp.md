@@ -7,7 +7,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: graph/is_bipartite.hpp
     title: graph/is_bipartite.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: my_template.hpp
     title: my_template.hpp
   _extendedRequiredBy: []
@@ -63,37 +63,38 @@ data:
     \u529B\u304B\u3089\u4F5C\u308B\n*/\ntemplate <typename T = long long, bool directed\
     \ = false>\nstruct Graph\n{\n    using cost_type = T;\n    int n, m;\n    vector<vector<Edge<T>>>\
     \ G;\n    vector<Edge<T>> edges;\n    vector<int> deg, in_deg, out_deg;\n\n  \
-    \  Graph() {}\n    Graph(int N) \n    {\n        n = N; m = 0;\n        G = vector<vector<Edge<T>>>(N);\n\
+    \  Graph() {}\n    Graph(int N)\n    {\n        n = N; m = 0;\n        G = vector<vector<Edge<T>>>(N);\n\
     \        deg = vector<int>(N, 0);\n        in_deg = vector<int>(N, 0);\n     \
     \   out_deg = vector<int>(N, 0);\n    }\n\n    const vector<Edge<T>>& operator[](int\
     \ x) const { return G[x]; }\n\n    // \u8FBA\u3092\u8FFD\u52A0\n    void add(int\
-    \ from, int to, T cost = 1, int id = -1)\\\n    {\n        if(id == -1) id = m++;\n\
-    \        G[from].emplace_back(from, to, cost, id);\n        edges.emplace_back(from,\
-    \ to, cost, id);\n        out_deg[from]++, in_deg[to]++;\n        if(directed\
-    \ == false) \n        {\n            G[to].emplace_back(to, from, cost, id);\n\
-    \            out_deg[to]++, in_deg[from]++;\n        }\n    }\n\n    void mkg(int\
-    \ M, bool weighted = false, int off = 1)\n    {\n        for(int i = 0; i < M;\
-    \ i++)\n        {\n            int x, y; cin >> x >> y;\n            x -= off,\
-    \ y -= off;\n            if(weighted == false) add(x, y);\n            else {\
-    \ T z; cin >> z; add(x, y, z); }\n        }\n    }\n\n    void mkg_ancestor(bool\
-    \ weighted = false, int off = 1)\n    {\n        for(int i = 1; i < n; i++)\n\
-    \        {\n            int x; cin >> x; x -= off;\n            if(weighted ==\
-    \ false) add(x, i);\n            else { T z; cin >> z; add(x, i, z); }\n     \
-    \   }\n    }\n};\n#line 4 \"graph/is_bipartite.hpp\"\n\ntemplate <class G>\nbool\
-    \ is_bipartite(G &g)\n{\n    int n = g.n;\n    bool res = true;\n    vector<int>\
-    \ color(n, -1);\n    auto dfs = [&](auto dfs, int U, int V) -> void\n    {\n \
-    \       for(auto [from, to, _, __] : g[U])\n        {\n            if(color[to]\
-    \ >= 0)\n            {\n                if(color[from] == color[to]) res = false;\n\
-    \                continue;\n            }\n            color[to] = color[from]\
-    \ ^ 1;\n            dfs(dfs, to, from);\n        }\n    };\n    for(int i = 0;\
-    \ i < n; i++)\n    {\n        if(color[i] >= 0) continue;\n        color[i] =\
-    \ 0;\n        dfs(dfs, i, -1);\n    }\n    return res;\n}\n#line 4 \"verify/test_atcoder/abc327_d.test.cpp\"\
-    \n\nvoid solve()\n{\n    int n, m; cin >> n >> m;\n    Graph<int, false> g(n);\n\
-    \    vi a(m), b(m);\n    rep(i, 0, m) cin >> a[i], a[i]--;\n    rep(i, 0, m) cin\
-    \ >> b[i], b[i]--;\n    rep(i, 0, m) g.add(a[i], b[i]);\n    bool ok = is_bipartite(g);\n\
-    \    if(ok) cout << \"Yes\" << '\\n';\n    else cout << \"No\" << '\\n';\n}\n\n\
-    int main()\n{\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n\
-    \    int t = 1;\n    //cin >> t;\n    while (t--) solve();\n}\n"
+    \ from, int to, T cost = 1, int id = -1)\\\n    {\n        assert(from >= 0 &&\
+    \ from < n && to >= 0 && to < n);\n        if(id == -1) id = m++;\n        G[from].emplace_back(from,\
+    \ to, cost, id);\n        edges.emplace_back(from, to, cost, id);\n        out_deg[from]++,\
+    \ in_deg[to]++;\n        if(directed == false)\n        {\n            G[to].emplace_back(to,\
+    \ from, cost, id);\n            out_deg[to]++, in_deg[from]++;\n        }\n  \
+    \  }\n\n    void mkg(int M, bool weighted = false, int off = 1)\n    {\n     \
+    \   for(int i = 0; i < M; i++)\n        {\n            int x, y; cin >> x >> y;\n\
+    \            x -= off, y -= off;\n            if(weighted == false) add(x, y);\n\
+    \            else { T z; cin >> z; add(x, y, z); }\n        }\n    }\n\n    void\
+    \ mkg_ancestor(bool weighted = false, int off = 1)\n    {\n        for(int i =\
+    \ 1; i < n; i++)\n        {\n            int x; cin >> x; x -= off;\n        \
+    \    if(weighted == false) add(x, i);\n            else { T z; cin >> z; add(x,\
+    \ i, z); }\n        }\n    }\n};\n#line 4 \"graph/is_bipartite.hpp\"\n\ntemplate\
+    \ <class G>\nbool is_bipartite(G &g)\n{\n    int n = g.n;\n    bool res = true;\n\
+    \    vector<int> color(n, -1);\n    auto dfs = [&](auto dfs, int U, int V) ->\
+    \ void\n    {\n        for(auto [from, to, _, __] : g[U])\n        {\n       \
+    \     if(color[to] >= 0)\n            {\n                if(color[from] == color[to])\
+    \ res = false;\n                continue;\n            }\n            color[to]\
+    \ = color[from] ^ 1;\n            dfs(dfs, to, from);\n        }\n    };\n   \
+    \ for(int i = 0; i < n; i++)\n    {\n        if(color[i] >= 0) continue;\n   \
+    \     color[i] = 0;\n        dfs(dfs, i, -1);\n    }\n    return res;\n}\n#line\
+    \ 4 \"verify/test_atcoder/abc327_d.test.cpp\"\n\nvoid solve()\n{\n    int n, m;\
+    \ cin >> n >> m;\n    Graph<int, false> g(n);\n    vi a(m), b(m);\n    rep(i,\
+    \ 0, m) cin >> a[i], a[i]--;\n    rep(i, 0, m) cin >> b[i], b[i]--;\n    rep(i,\
+    \ 0, m) g.add(a[i], b[i]);\n    bool ok = is_bipartite(g);\n    if(ok) cout <<\
+    \ \"Yes\" << '\\n';\n    else cout << \"No\" << '\\n';\n}\n\nint main()\n{\n \
+    \   ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n    int t = 1;\n\
+    \    //cin >> t;\n    while (t--) solve();\n}\n"
   code: "#define PROBLEM \"https://atcoder.jp/contests/abc327/tasks/abc327_d\"\n#include\
     \ \"my_template.hpp\"\n#include \"graph/is_bipartite.hpp\"\n\nvoid solve()\n{\n\
     \    int n, m; cin >> n >> m;\n    Graph<int, false> g(n);\n    vi a(m), b(m);\n\
@@ -109,7 +110,7 @@ data:
   isVerificationFile: true
   path: verify/test_atcoder/abc327_d.test.cpp
   requiredBy: []
-  timestamp: '2024-06-17 21:21:08+09:00'
+  timestamp: '2024-07-07 18:01:56+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/test_atcoder/abc327_d.test.cpp

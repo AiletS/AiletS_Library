@@ -17,6 +17,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: graph/tree/lca.hpp
     title: graph/tree/lca.hpp
+  - icon: ':warning:'
+    path: graph/tree/tree_diameter.hpp
+    title: graph/tree/tree_diameter.hpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: verify/library_checker/Lowest_Common_Ancestor.test.cpp
@@ -41,42 +44,43 @@ data:
     \u529B\u304B\u3089\u4F5C\u308B\n*/\ntemplate <typename T = long long, bool directed\
     \ = false>\nstruct Graph\n{\n    using cost_type = T;\n    int n, m;\n    vector<vector<Edge<T>>>\
     \ G;\n    vector<Edge<T>> edges;\n    vector<int> deg, in_deg, out_deg;\n\n  \
-    \  Graph() {}\n    Graph(int N) \n    {\n        n = N; m = 0;\n        G = vector<vector<Edge<T>>>(N);\n\
+    \  Graph() {}\n    Graph(int N)\n    {\n        n = N; m = 0;\n        G = vector<vector<Edge<T>>>(N);\n\
     \        deg = vector<int>(N, 0);\n        in_deg = vector<int>(N, 0);\n     \
     \   out_deg = vector<int>(N, 0);\n    }\n\n    const vector<Edge<T>>& operator[](int\
     \ x) const { return G[x]; }\n\n    // \u8FBA\u3092\u8FFD\u52A0\n    void add(int\
-    \ from, int to, T cost = 1, int id = -1)\\\n    {\n        if(id == -1) id = m++;\n\
-    \        G[from].emplace_back(from, to, cost, id);\n        edges.emplace_back(from,\
-    \ to, cost, id);\n        out_deg[from]++, in_deg[to]++;\n        if(directed\
-    \ == false) \n        {\n            G[to].emplace_back(to, from, cost, id);\n\
-    \            out_deg[to]++, in_deg[from]++;\n        }\n    }\n\n    void mkg(int\
-    \ M, bool weighted = false, int off = 1)\n    {\n        for(int i = 0; i < M;\
-    \ i++)\n        {\n            int x, y; cin >> x >> y;\n            x -= off,\
-    \ y -= off;\n            if(weighted == false) add(x, y);\n            else {\
-    \ T z; cin >> z; add(x, y, z); }\n        }\n    }\n\n    void mkg_ancestor(bool\
-    \ weighted = false, int off = 1)\n    {\n        for(int i = 1; i < n; i++)\n\
-    \        {\n            int x; cin >> x; x -= off;\n            if(weighted ==\
-    \ false) add(x, i);\n            else { T z; cin >> z; add(x, i, z); }\n     \
-    \   }\n    }\n};\n#line 4 \"graph/tree/tree_base.hpp\"\n\ntemplate <class GT>\n\
-    struct Tree\n{\n    using Graph_type = GT;\n    using cost_type = typename GT::cost_type;\n\
-    \    GT& G;\n    int n, root;\n    vector<int> depth, parent;\n\n    Tree() {}\n\
-    \    Tree(GT& G, int root = 0) : G(G), root(root) { build(); }\n    const vector<Edge<cost_type>>&\
-    \ operator[](int x) const { return G[x]; }\n\n    void build()\n    {\n      \
-    \  n = G.n;\n        depth.assign(n, -1), parent.assign(n, -1);\n        dfs(root,\
-    \ -1);\n    }\n\n    void dfs(int U, int V)\n    {\n        parent[U] = V;\n \
-    \       depth[U] = (V == -1 ? 0 : depth[V] + 1);\n        for(auto [from, to,\
-    \ _, __] : G[U])\n        {\n            if(to == V) continue;\n            dfs(to,\
-    \ from);\n        }\n    }\n};\n"
+    \ from, int to, T cost = 1, int id = -1)\\\n    {\n        assert(from >= 0 &&\
+    \ from < n && to >= 0 && to < n);\n        if(id == -1) id = m++;\n        G[from].emplace_back(from,\
+    \ to, cost, id);\n        edges.emplace_back(from, to, cost, id);\n        out_deg[from]++,\
+    \ in_deg[to]++;\n        if(directed == false)\n        {\n            G[to].emplace_back(to,\
+    \ from, cost, id);\n            out_deg[to]++, in_deg[from]++;\n        }\n  \
+    \  }\n\n    void mkg(int M, bool weighted = false, int off = 1)\n    {\n     \
+    \   for(int i = 0; i < M; i++)\n        {\n            int x, y; cin >> x >> y;\n\
+    \            x -= off, y -= off;\n            if(weighted == false) add(x, y);\n\
+    \            else { T z; cin >> z; add(x, y, z); }\n        }\n    }\n\n    void\
+    \ mkg_ancestor(bool weighted = false, int off = 1)\n    {\n        for(int i =\
+    \ 1; i < n; i++)\n        {\n            int x; cin >> x; x -= off;\n        \
+    \    if(weighted == false) add(x, i);\n            else { T z; cin >> z; add(x,\
+    \ i, z); }\n        }\n    }\n};\n#line 4 \"graph/tree/tree_base.hpp\"\n\ntemplate\
+    \ <class GT>\nstruct Tree\n{\n    using Graph_type = GT;\n    using cost_type\
+    \ = typename GT::cost_type;\n    GT& G;\n    int n, root;\n    vector<int> depth,\
+    \ parent;\n\n    Tree() {}\n    Tree(GT& G, int root = 0) : G(G), root(root) {\
+    \ build(); }\n    const vector<Edge<cost_type>>& operator[](int x) const\n   \
+    \     { assert(x >= 0 && x < n); return G[x]; }\n\n    void build()\n    {\n \
+    \       n = G.n;\n        depth.assign(n, -1), parent.assign(n, -1);\n       \
+    \ dfs(root, -1);\n    }\n\n    void dfs(int U, int V)\n    {\n        parent[U]\
+    \ = V;\n        depth[U] = (V == -1 ? 0 : depth[V] + 1);\n        for(auto [from,\
+    \ to, _, __] : G[U])\n        {\n            if(to == V) continue;\n         \
+    \   dfs(to, from);\n        }\n    }\n};\n"
   code: "#pragma once\n\n#include \"graph/graph_base.hpp\"\n\ntemplate <class GT>\n\
     struct Tree\n{\n    using Graph_type = GT;\n    using cost_type = typename GT::cost_type;\n\
     \    GT& G;\n    int n, root;\n    vector<int> depth, parent;\n\n    Tree() {}\n\
     \    Tree(GT& G, int root = 0) : G(G), root(root) { build(); }\n    const vector<Edge<cost_type>>&\
-    \ operator[](int x) const { return G[x]; }\n\n    void build()\n    {\n      \
-    \  n = G.n;\n        depth.assign(n, -1), parent.assign(n, -1);\n        dfs(root,\
-    \ -1);\n    }\n\n    void dfs(int U, int V)\n    {\n        parent[U] = V;\n \
-    \       depth[U] = (V == -1 ? 0 : depth[V] + 1);\n        for(auto [from, to,\
-    \ _, __] : G[U])\n        {\n            if(to == V) continue;\n            dfs(to,\
-    \ from);\n        }\n    }\n};"
+    \ operator[](int x) const\n        { assert(x >= 0 && x < n); return G[x]; }\n\
+    \n    void build()\n    {\n        n = G.n;\n        depth.assign(n, -1), parent.assign(n,\
+    \ -1);\n        dfs(root, -1);\n    }\n\n    void dfs(int U, int V)\n    {\n \
+    \       parent[U] = V;\n        depth[U] = (V == -1 ? 0 : depth[V] + 1);\n   \
+    \     for(auto [from, to, _, __] : G[U])\n        {\n            if(to == V) continue;\n\
+    \            dfs(to, from);\n        }\n    }\n};"
   dependsOn:
   - graph/graph_base.hpp
   isVerificationFile: false
@@ -85,8 +89,9 @@ data:
   - graph/tree/EulerTour.hpp
   - graph/tree/CompressTree.hpp
   - graph/tree/lca.hpp
+  - graph/tree/tree_diameter.hpp
   - graph/tree/Rerooting_dp.hpp
-  timestamp: '2024-06-17 21:21:08+09:00'
+  timestamp: '2024-07-07 18:01:56+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - verify/library_checker/Lowest_Common_Ancestor.test.cpp

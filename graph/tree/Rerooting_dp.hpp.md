@@ -30,36 +30,37 @@ data:
     \ <typename T = long long, bool directed = false>\nstruct Graph\n{\n    using\
     \ cost_type = T;\n    int n, m;\n    vector<vector<Edge<T>>> G;\n    vector<Edge<T>>\
     \ edges;\n    vector<int> deg, in_deg, out_deg;\n\n    Graph() {}\n    Graph(int\
-    \ N) \n    {\n        n = N; m = 0;\n        G = vector<vector<Edge<T>>>(N);\n\
+    \ N)\n    {\n        n = N; m = 0;\n        G = vector<vector<Edge<T>>>(N);\n\
     \        deg = vector<int>(N, 0);\n        in_deg = vector<int>(N, 0);\n     \
     \   out_deg = vector<int>(N, 0);\n    }\n\n    const vector<Edge<T>>& operator[](int\
     \ x) const { return G[x]; }\n\n    // \u8FBA\u3092\u8FFD\u52A0\n    void add(int\
-    \ from, int to, T cost = 1, int id = -1)\\\n    {\n        if(id == -1) id = m++;\n\
-    \        G[from].emplace_back(from, to, cost, id);\n        edges.emplace_back(from,\
-    \ to, cost, id);\n        out_deg[from]++, in_deg[to]++;\n        if(directed\
-    \ == false) \n        {\n            G[to].emplace_back(to, from, cost, id);\n\
-    \            out_deg[to]++, in_deg[from]++;\n        }\n    }\n\n    void mkg(int\
-    \ M, bool weighted = false, int off = 1)\n    {\n        for(int i = 0; i < M;\
-    \ i++)\n        {\n            int x, y; cin >> x >> y;\n            x -= off,\
-    \ y -= off;\n            if(weighted == false) add(x, y);\n            else {\
-    \ T z; cin >> z; add(x, y, z); }\n        }\n    }\n\n    void mkg_ancestor(bool\
-    \ weighted = false, int off = 1)\n    {\n        for(int i = 1; i < n; i++)\n\
-    \        {\n            int x; cin >> x; x -= off;\n            if(weighted ==\
-    \ false) add(x, i);\n            else { T z; cin >> z; add(x, i, z); }\n     \
-    \   }\n    }\n};\n#line 4 \"graph/tree/tree_base.hpp\"\n\ntemplate <class GT>\n\
-    struct Tree\n{\n    using Graph_type = GT;\n    using cost_type = typename GT::cost_type;\n\
-    \    GT& G;\n    int n, root;\n    vector<int> depth, parent;\n\n    Tree() {}\n\
-    \    Tree(GT& G, int root = 0) : G(G), root(root) { build(); }\n    const vector<Edge<cost_type>>&\
-    \ operator[](int x) const { return G[x]; }\n\n    void build()\n    {\n      \
-    \  n = G.n;\n        depth.assign(n, -1), parent.assign(n, -1);\n        dfs(root,\
-    \ -1);\n    }\n\n    void dfs(int U, int V)\n    {\n        parent[U] = V;\n \
-    \       depth[U] = (V == -1 ? 0 : depth[V] + 1);\n        for(auto [from, to,\
-    \ _, __] : G[U])\n        {\n            if(to == V) continue;\n            dfs(to,\
-    \ from);\n        }\n    }\n};\n#line 4 \"graph/tree/Rerooting_dp.hpp\"\n\n/*\n\
-    Rerooting_dp<decltype(g), S, e, fee, fev> dp(g);\nstruct S : \u578B\nS e() : S\u306E\
-    \u5358\u4F4D\u9650\nS fee(S, S) : \u90E8\u5206\u6728\u306E\u7D50\u5408\nS fev(S,\
-    \ int) : \u8FBA e \u304B\u3089\u9802\u70B9 v \u306B\n*/\ntemplate <class TREE,\
-    \ class S, S (*e)(), S (*fee)(S, S), S (*fev)(S, int)>\nstruct Rerooting_dp\n\
+    \ from, int to, T cost = 1, int id = -1)\\\n    {\n        assert(from >= 0 &&\
+    \ from < n && to >= 0 && to < n);\n        if(id == -1) id = m++;\n        G[from].emplace_back(from,\
+    \ to, cost, id);\n        edges.emplace_back(from, to, cost, id);\n        out_deg[from]++,\
+    \ in_deg[to]++;\n        if(directed == false)\n        {\n            G[to].emplace_back(to,\
+    \ from, cost, id);\n            out_deg[to]++, in_deg[from]++;\n        }\n  \
+    \  }\n\n    void mkg(int M, bool weighted = false, int off = 1)\n    {\n     \
+    \   for(int i = 0; i < M; i++)\n        {\n            int x, y; cin >> x >> y;\n\
+    \            x -= off, y -= off;\n            if(weighted == false) add(x, y);\n\
+    \            else { T z; cin >> z; add(x, y, z); }\n        }\n    }\n\n    void\
+    \ mkg_ancestor(bool weighted = false, int off = 1)\n    {\n        for(int i =\
+    \ 1; i < n; i++)\n        {\n            int x; cin >> x; x -= off;\n        \
+    \    if(weighted == false) add(x, i);\n            else { T z; cin >> z; add(x,\
+    \ i, z); }\n        }\n    }\n};\n#line 4 \"graph/tree/tree_base.hpp\"\n\ntemplate\
+    \ <class GT>\nstruct Tree\n{\n    using Graph_type = GT;\n    using cost_type\
+    \ = typename GT::cost_type;\n    GT& G;\n    int n, root;\n    vector<int> depth,\
+    \ parent;\n\n    Tree() {}\n    Tree(GT& G, int root = 0) : G(G), root(root) {\
+    \ build(); }\n    const vector<Edge<cost_type>>& operator[](int x) const\n   \
+    \     { assert(x >= 0 && x < n); return G[x]; }\n\n    void build()\n    {\n \
+    \       n = G.n;\n        depth.assign(n, -1), parent.assign(n, -1);\n       \
+    \ dfs(root, -1);\n    }\n\n    void dfs(int U, int V)\n    {\n        parent[U]\
+    \ = V;\n        depth[U] = (V == -1 ? 0 : depth[V] + 1);\n        for(auto [from,\
+    \ to, _, __] : G[U])\n        {\n            if(to == V) continue;\n         \
+    \   dfs(to, from);\n        }\n    }\n};\n#line 4 \"graph/tree/Rerooting_dp.hpp\"\
+    \n\n/*\nRerooting_dp<decltype(g), S, e, fee, fev> dp(g);\nstruct S : \u578B\n\
+    S e() : S\u306E\u5358\u4F4D\u9650\nS fee(S, S) : \u90E8\u5206\u6728\u306E\u7D50\
+    \u5408\nS fev(S, int) : \u8FBA e \u304B\u3089\u9802\u70B9 v \u306B\n*/\ntemplate\
+    \ <class TREE, class S, S (*e)(), S (*fee)(S, S), S (*fev)(S, int)>\nstruct Rerooting_dp\n\
     {\n    TREE& g;\n    int n;\n    vector<S> subtree;\n    vector<S> rev_subtree;\n\
     \    vector<S> ans;\n\n    Rerooting_dp() {}\n    Rerooting_dp(TREE& _g) : g(_g),\
     \ n(_g.n) { build(); }\n\n    S& operator[](int i) { return ans[i]; }\n\n    void\
@@ -122,7 +123,7 @@ data:
   isVerificationFile: false
   path: graph/tree/Rerooting_dp.hpp
   requiredBy: []
-  timestamp: '2024-06-17 21:21:08+09:00'
+  timestamp: '2024-07-07 18:01:56+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: graph/tree/Rerooting_dp.hpp

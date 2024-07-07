@@ -7,7 +7,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: graph/scc.hpp
     title: graph/scc.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: my_template.hpp
     title: my_template.hpp
   _extendedRequiredBy: []
@@ -63,43 +63,44 @@ data:
     \u529B\u304B\u3089\u4F5C\u308B\n*/\ntemplate <typename T = long long, bool directed\
     \ = false>\nstruct Graph\n{\n    using cost_type = T;\n    int n, m;\n    vector<vector<Edge<T>>>\
     \ G;\n    vector<Edge<T>> edges;\n    vector<int> deg, in_deg, out_deg;\n\n  \
-    \  Graph() {}\n    Graph(int N) \n    {\n        n = N; m = 0;\n        G = vector<vector<Edge<T>>>(N);\n\
+    \  Graph() {}\n    Graph(int N)\n    {\n        n = N; m = 0;\n        G = vector<vector<Edge<T>>>(N);\n\
     \        deg = vector<int>(N, 0);\n        in_deg = vector<int>(N, 0);\n     \
     \   out_deg = vector<int>(N, 0);\n    }\n\n    const vector<Edge<T>>& operator[](int\
     \ x) const { return G[x]; }\n\n    // \u8FBA\u3092\u8FFD\u52A0\n    void add(int\
-    \ from, int to, T cost = 1, int id = -1)\\\n    {\n        if(id == -1) id = m++;\n\
-    \        G[from].emplace_back(from, to, cost, id);\n        edges.emplace_back(from,\
-    \ to, cost, id);\n        out_deg[from]++, in_deg[to]++;\n        if(directed\
-    \ == false) \n        {\n            G[to].emplace_back(to, from, cost, id);\n\
-    \            out_deg[to]++, in_deg[from]++;\n        }\n    }\n\n    void mkg(int\
-    \ M, bool weighted = false, int off = 1)\n    {\n        for(int i = 0; i < M;\
-    \ i++)\n        {\n            int x, y; cin >> x >> y;\n            x -= off,\
-    \ y -= off;\n            if(weighted == false) add(x, y);\n            else {\
-    \ T z; cin >> z; add(x, y, z); }\n        }\n    }\n\n    void mkg_ancestor(bool\
-    \ weighted = false, int off = 1)\n    {\n        for(int i = 1; i < n; i++)\n\
-    \        {\n            int x; cin >> x; x -= off;\n            if(weighted ==\
-    \ false) add(x, i);\n            else { T z; cin >> z; add(x, i, z); }\n     \
-    \   }\n    }\n};\n#line 4 \"graph/scc.hpp\"\n\ntemplate <class G>\nvector<vector<int>>\
-    \ scc(G& g)\n{\n    int n = g.n, m = g.m;\n    const int inf = 1001001001;\n\n\
-    \    auto get_ids = [&]() -> pair<int, vector<int>>\n    {\n\t\tint now_ord =\
-    \ 0, now_id = 0;\n\t\tvector<int> low(n), ord(n, -1), id(n);\n\t\tstack<int> visited;\n\
-    \t\tauto dfs = [&](auto dfs, int v) -> void\n\t\t{\n\t\t\tlow[v] = ord[v] = now_ord++;\n\
-    \t\t\tvisited.push(v);\n\t\t\tfor (auto [_, p, __, ___] : g[v])\n\t\t\t{\n\t\t\
-    \t\tif (ord[p] == -1)\n\t\t\t\t{\n\t\t\t\t\tdfs(dfs, p);\n\t\t\t\t\tlow[v] = min(low[v],\
-    \ low[p]);\n\t\t\t\t}\n\t\t\t\telse low[v] = min(low[v], ord[p]);\n\t\t\t}\n\n\
-    \t\t\tif (low[v] == ord[v])\n\t\t\t{\n\t\t\t\twhile (true)\n\t\t\t\t{\n\t\t\t\t\
-    \tint u = visited.top(); visited.pop();\n\t\t\t\t\tord[u] = inf;\n\t\t\t\t\tid[u]\
-    \ = now_id;\n\t\t\t\t\tif (u == v) break;\n\t\t\t\t}\n\t\t\t\tnow_id++;\n\t\t\t\
-    }\n\t\t};\n\n\t\tfor (int i = 0; i < n; i++)\n\t\t{\n\t\t\tif (ord[i] == -1) dfs(dfs,\
-    \ i);\n\t\t}\n\t\tfor (auto& p : id) p = now_id - 1 - p;\n\t\treturn { now_id,\
-    \ id };\n    };\n\n    auto ids = get_ids();\n    vector<vector<int>> res(ids.first);\n\
-    \    for(int i = 0; i < n; i++) res[ids.second[i]].push_back(i);\n    return res;\n\
-    }\n#line 4 \"verify/library_checker/Strongly_Connected_Components.test.cpp\"\n\
-    \nvoid solve()\n{\n    int n, m; cin >> n >> m;\n    Graph<long long, true> g(n);\n\
-    \    g.mkg(m, false, 0);\n    auto res = scc(g);\n    cout << res.size() << '\\\
-    n';\n    for(auto p : res)\n    {\n        cout << p.size() << ' ' << p << '\\\
-    n';\n    }\n}\n\nint main()\n{\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n\
-    \    int t = 1;\n    //cin >> t;\n    while (t--) solve();\n}\n"
+    \ from, int to, T cost = 1, int id = -1)\\\n    {\n        assert(from >= 0 &&\
+    \ from < n && to >= 0 && to < n);\n        if(id == -1) id = m++;\n        G[from].emplace_back(from,\
+    \ to, cost, id);\n        edges.emplace_back(from, to, cost, id);\n        out_deg[from]++,\
+    \ in_deg[to]++;\n        if(directed == false)\n        {\n            G[to].emplace_back(to,\
+    \ from, cost, id);\n            out_deg[to]++, in_deg[from]++;\n        }\n  \
+    \  }\n\n    void mkg(int M, bool weighted = false, int off = 1)\n    {\n     \
+    \   for(int i = 0; i < M; i++)\n        {\n            int x, y; cin >> x >> y;\n\
+    \            x -= off, y -= off;\n            if(weighted == false) add(x, y);\n\
+    \            else { T z; cin >> z; add(x, y, z); }\n        }\n    }\n\n    void\
+    \ mkg_ancestor(bool weighted = false, int off = 1)\n    {\n        for(int i =\
+    \ 1; i < n; i++)\n        {\n            int x; cin >> x; x -= off;\n        \
+    \    if(weighted == false) add(x, i);\n            else { T z; cin >> z; add(x,\
+    \ i, z); }\n        }\n    }\n};\n#line 4 \"graph/scc.hpp\"\n\ntemplate <class\
+    \ G>\nvector<vector<int>> scc(G& g)\n{\n    int n = g.n, m = g.m;\n    const int\
+    \ inf = 1001001001;\n\n    auto get_ids = [&]() -> pair<int, vector<int>>\n  \
+    \  {\n\t\tint now_ord = 0, now_id = 0;\n\t\tvector<int> low(n), ord(n, -1), id(n);\n\
+    \t\tstack<int> visited;\n\t\tauto dfs = [&](auto dfs, int v) -> void\n\t\t{\n\t\
+    \t\tlow[v] = ord[v] = now_ord++;\n\t\t\tvisited.push(v);\n\t\t\tfor (auto [_,\
+    \ p, __, ___] : g[v])\n\t\t\t{\n\t\t\t\tif (ord[p] == -1)\n\t\t\t\t{\n\t\t\t\t\
+    \tdfs(dfs, p);\n\t\t\t\t\tlow[v] = min(low[v], low[p]);\n\t\t\t\t}\n\t\t\t\telse\
+    \ low[v] = min(low[v], ord[p]);\n\t\t\t}\n\n\t\t\tif (low[v] == ord[v])\n\t\t\t\
+    {\n\t\t\t\twhile (true)\n\t\t\t\t{\n\t\t\t\t\tint u = visited.top(); visited.pop();\n\
+    \t\t\t\t\tord[u] = inf;\n\t\t\t\t\tid[u] = now_id;\n\t\t\t\t\tif (u == v) break;\n\
+    \t\t\t\t}\n\t\t\t\tnow_id++;\n\t\t\t}\n\t\t};\n\n\t\tfor (int i = 0; i < n; i++)\n\
+    \t\t{\n\t\t\tif (ord[i] == -1) dfs(dfs, i);\n\t\t}\n\t\tfor (auto& p : id) p =\
+    \ now_id - 1 - p;\n\t\treturn { now_id, id };\n    };\n\n    auto ids = get_ids();\n\
+    \    vector<vector<int>> res(ids.first);\n    for(int i = 0; i < n; i++) res[ids.second[i]].push_back(i);\n\
+    \    return res;\n}\n#line 4 \"verify/library_checker/Strongly_Connected_Components.test.cpp\"\
+    \n\nvoid solve()\n{\n    int n, m; cin >> n >> m;\n    Graph<long long, true>\
+    \ g(n);\n    g.mkg(m, false, 0);\n    auto res = scc(g);\n    cout << res.size()\
+    \ << '\\n';\n    for(auto p : res)\n    {\n        cout << p.size() << ' ' <<\
+    \ p << '\\n';\n    }\n}\n\nint main()\n{\n    ios::sync_with_stdio(false);\n \
+    \   std::cin.tie(nullptr);\n    int t = 1;\n    //cin >> t;\n    while (t--) solve();\n\
+    }\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/scc\"\n#include \"my_template.hpp\"\
     \n#include \"graph/scc.hpp\"\n\nvoid solve()\n{\n    int n, m; cin >> n >> m;\n\
     \    Graph<long long, true> g(n);\n    g.mkg(m, false, 0);\n    auto res = scc(g);\n\
@@ -114,7 +115,7 @@ data:
   isVerificationFile: true
   path: verify/library_checker/Strongly_Connected_Components.test.cpp
   requiredBy: []
-  timestamp: '2024-06-17 21:21:08+09:00'
+  timestamp: '2024-07-07 18:01:56+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/library_checker/Strongly_Connected_Components.test.cpp
