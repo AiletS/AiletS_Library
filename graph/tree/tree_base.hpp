@@ -13,7 +13,8 @@ struct Tree
 
     Tree() {}
     Tree(GT& G, int root = 0) : G(G), root(root) { build(); }
-    const vector<Edge<cost_type>>& operator[](int x) const { return G[x]; }
+    const vector<Edge<cost_type>>& operator[](int x) const
+        { assert(x >= 0 && x < n); return G[x]; }
 
     void build()
     {

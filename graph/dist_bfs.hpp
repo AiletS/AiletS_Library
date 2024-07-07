@@ -5,14 +5,15 @@
 /*
 グラフからBFSを行う
 dist_bfs<T = long long>(G& g, int start, T inf_off = 0)
-startからの距離 vector<T> を返す
+[dist, par] を返す
 inf_off は 0 のとき infty<T>、0 ではないとき最大値を任意に設定
 */
 template <class T = long long, class G>
-vector<T> dist_bfs(G& g, int start, T inf_off = 0)
+pair<vector<T>, vector<int>> dist_bfs(G& g, int start, T inf_off = 0)
 {
     if(inf_off == 0) inf_off = infty<T>;
     vector<T> dist(g.n, inf_off); dist[start] = 0;
+    vector<int> par(g.n, -1);
     queue<T> q; q.push(start);
     while(q.size())
     {
@@ -22,27 +23,30 @@ vector<T> dist_bfs(G& g, int start, T inf_off = 0)
             if(dist[a] + p.cost < dist[p.to])
             {
                 dist[p.to] = dist[a] + p.cost;
+                par[p.to] = p.from;
                 q.push(p.to);
             }
         }
     }
-    return dist;
+    return { dist, par };
 }
 
 /*
 グラフからBFSを行う(多点スタート)
 dist_bfs<T = long long>(G& g, int start, T inf_off = 0)
-vector<int> startからの距離 vector<T> を返す
+[dist, par, root] を返す
+root はその頂点がどこの頂点からきたか
 inf_off は 0 のとき infty<T>、0 ではないとき最大値を任意に設定
 */
 template <class T = long long, class G>
-vector<T> dist_bfs(G& g, vector<int>& starts, T inf_off = 0)
+tuple<vector<T>, vector<int>, vector<int>> dist_bfs(G& g, vector<int>& starts, T inf_off = 0)
 {
     if(inf_off == 0) inf_off = infty<T>;
-    vector<T> dist(g.n, inf_off); 
+    vector<T> dist(g.n, inf_off);
+    vector<int> par(g.n, -1), root(g.n, -1);
     queue<T> q;
-    for(auto p : starts) dist[p] = 0, q.push(p);
-    
+    for(auto p : starts) dist[p] = 0, q.push(p), root[p] = p;
+
     while(q.size())
     {
         int a = q.front(); q.pop();
@@ -51,9 +55,11 @@ vector<T> dist_bfs(G& g, vector<int>& starts, T inf_off = 0)
             if(dist[a] + p.cost < dist[p.to])
             {
                 dist[p.to] = dist[a] + p.cost;
+                par[p.to] = p.from;
+                root[p.to] = root[p.from];
                 q.push(p.to);
             }
         }
     }
-    return dist;
+    return { dist, par, root };
 }

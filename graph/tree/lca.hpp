@@ -34,6 +34,7 @@ struct LCA
 
     int get(int x, int y)
     {
+        assert(x >= 0 && x < n && y >= 0 && y < n);
         int l = in[x], r = in[y];
         if(l > r) swap(l, r);
         return sp.get(l, r + 1).second;

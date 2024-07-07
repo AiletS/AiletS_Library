@@ -16,7 +16,7 @@ pair<vector<T>, vector<int>> dijkstra(GT& g, int start, T inf_off = 0)
 
     vector<T> dist(n, inf_off);
     vector<int> pre(n, -1);
-    
+
     dist[start] = 0;
     priority_queue<PT, vector<PT>, greater<PT>> q;
     q.emplace(dist[start], start);
@@ -36,13 +36,4 @@ pair<vector<T>, vector<int>> dijkstra(GT& g, int start, T inf_off = 0)
         }
     }
     return { dist, pre };
-}
-
-// route(目的地, pre) で経路を返す
-vector<int> route(int x, vector<int>& pre) // route restoration
-{
-    vector<int> path;
-    for(int i = x; i != -1; i = pre[i]) path.push_back(i);
-    reverse(path.begin(), path.end());
-    return path;
 }

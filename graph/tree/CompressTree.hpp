@@ -5,21 +5,16 @@
 // Compress Tree or Auxiliary Tree
 // CompressTree(Tree g), get(vector<int> X)
 // 頂点集合 X をもとに圧縮した木を返す :
-// [V, Tree] V は Tree の頂点の番号に対応している
-// |Tree| <= 2|X| - 1, 生成に O(|X|(log|X| + log|N|))
+// [V, Graph] V は Tree の頂点の番号に対応している
+// (TreeではなくGraphが返されることには注意)
+// |Graph| <= 2|X| - 1, 生成に O(|X|(log|X| + log|N|))
 template <class TREE>
 struct CompressTree
 {
     CompressTree() {}
-    CompressTree(TREE& _g) : g(_g), n(g.n)
-    {
-        lca = LCA(g);
-        pre_ord.resize(n);
-        int now = 0;
-        dfs(g.root, -1, now);
-    }
+    CompressTree(TREE& _g) : g(_g), n(g.n), lca(LCA(g)) { build(); }
 
-    pair<vector<int>, TREE> get(vector<int> X)
+    pair<vector<int>, typename TREE::Graph_type> get(vector<int> X)
     {
         int tn = X.size();
         sort(X.begin(), X.end(), [&](int& l, int& r) { return pre_ord[l] < pre_ord[r]; });
@@ -28,8 +23,7 @@ struct CompressTree
         X.erase(unique(X.begin(), X.end()), X.end());
         tn = X.size();
 
-        Graph _g(tn);
-        TREE res(_g);
+        Graph res(tn);
         stack<int> S; S.push(0);
         for(int i = 1; i < tn; i++)
         {
@@ -56,4 +50,11 @@ struct CompressTree
             dfs(to, from, now);
         }
     };
+
+    void build()
+    {
+        pre_ord.resize(n);
+        int now = 0;
+        dfs(g.root, -1, now);
+    }
 };

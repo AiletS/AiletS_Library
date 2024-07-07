@@ -28,7 +28,7 @@ struct Graph
     vector<int> deg, in_deg, out_deg;
 
     Graph() {}
-    Graph(int N) 
+    Graph(int N)
     {
         n = N; m = 0;
         G = vector<vector<Edge<T>>>(N);
@@ -42,11 +42,12 @@ struct Graph
     // 辺を追加
     void add(int from, int to, T cost = 1, int id = -1)\
     {
+        assert(from >= 0 && from < n && to >= 0 && to < n);
         if(id == -1) id = m++;
         G[from].emplace_back(from, to, cost, id);
         edges.emplace_back(from, to, cost, id);
         out_deg[from]++, in_deg[to]++;
-        if(directed == false) 
+        if(directed == false)
         {
             G[to].emplace_back(to, from, cost, id);
             out_deg[to]++, in_deg[from]++;
