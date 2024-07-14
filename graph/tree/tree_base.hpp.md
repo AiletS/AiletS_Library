@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: graph/graph_base.hpp
     title: graph/graph_base.hpp
   _extendedRequiredBy:
@@ -87,10 +87,10 @@ data:
   path: graph/tree/tree_base.hpp
   requiredBy:
   - graph/tree/EulerTour.hpp
+  - graph/tree/Rerooting_dp.hpp
   - graph/tree/CompressTree.hpp
   - graph/tree/lca.hpp
   - graph/tree/tree_diameter.hpp
-  - graph/tree/Rerooting_dp.hpp
   timestamp: '2024-07-07 18:01:56+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:

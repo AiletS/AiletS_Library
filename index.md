@@ -6,7 +6,7 @@ data:
     - icon: ':warning:'
       path: base.cpp
       title: base.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: my_template.hpp
       title: my_template.hpp
   - name: data_structure
@@ -14,7 +14,7 @@ data:
     - icon: ':warning:'
       path: data_structure/CHT.hpp
       title: data_structure/CHT.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: data_structure/Coordinate_Compression.hpp
       title: data_structure/Coordinate_Compression.hpp
     - icon: ':heavy_check_mark:'
@@ -35,19 +35,19 @@ data:
     - icon: ':warning:'
       path: data_structure/lazy_segtree.hpp
       title: data_structure/lazy_segtree.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: data_structure/merge_sort_tree.hpp
       title: data_structure/merge_sort_tree.hpp
     - icon: ':warning:'
       path: data_structure/mint.hpp
       title: data_structure/mint.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: data_structure/range_set.hpp
       title: data_structure/range_set.hpp
     - icon: ':warning:'
       path: data_structure/rational.hpp
       title: data_structure/rational.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: data_structure/segtree.hpp
       title: data_structure/segtree.hpp
   - name: flow
@@ -63,6 +63,14 @@ data:
     - icon: ':warning:'
       path: fps/fps.hpp
       title: fps/fps.hpp
+  - name: geom
+    pages:
+    - icon: ':warning:'
+      path: geom/Line.hpp
+      title: geom/Line.hpp
+    - icon: ':warning:'
+      path: geom/Vector.hpp
+      title: geom/Vector.hpp
   - name: graph
     pages:
     - icon: ':warning:'
@@ -71,10 +79,10 @@ data:
     - icon: ':warning:'
       path: graph/dist_dijkstra.hpp
       title: graph/dist_dijkstra.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: graph/graph_base.hpp
       title: graph/graph_base.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: graph/is_bipartite.hpp
       title: graph/is_bipartite.hpp
     - icon: ':warning:'
@@ -148,6 +156,12 @@ data:
       path: string/rle.hpp
       title: string/rle.hpp
     - icon: ':warning:'
+      path: string/suffix_array.hpp
+      title: string/suffix_array.hpp
+    - icon: ':warning:'
+      path: string/trie.hpp
+      title: string/trie.hpp
+    - icon: ':warning:'
       path: string/zalgo.hpp
       title: string/zalgo.hpp
   verificationCategories:
@@ -170,16 +184,16 @@ data:
       title: verify/library_checker/Unionfind.test.cpp
   - name: verify/test_atcoder
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: verify/test_atcoder/abc327_d.test.cpp
       title: verify/test_atcoder/abc327_d.test.cpp
     - icon: ':heavy_check_mark:'
       path: verify/test_atcoder/abc328_f.test.cpp
       title: verify/test_atcoder/abc328_f.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: verify/test_atcoder/abc351_f.test.cpp
       title: verify/test_atcoder/abc351_f.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: verify/test_atcoder/abc356_f.test.cpp
       title: verify/test_atcoder/abc356_f.test.cpp
 layout: toppage

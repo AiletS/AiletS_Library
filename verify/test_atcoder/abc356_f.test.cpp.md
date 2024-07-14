@@ -1,23 +1,23 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: data_structure/Coordinate_Compression.hpp
     title: data_structure/Coordinate_Compression.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: data_structure/range_set.hpp
     title: data_structure/range_set.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: data_structure/segtree.hpp
     title: data_structure/segtree.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: my_template.hpp
     title: my_template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://atcoder.jp/contests/abc356/tasks/abc356_f
@@ -202,7 +202,7 @@ data:
   path: verify/test_atcoder/abc356_f.test.cpp
   requiredBy: []
   timestamp: '2024-06-17 21:21:08+09:00'
-  verificationStatus: TEST_ACCEPTED
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: verify/test_atcoder/abc356_f.test.cpp
 layout: document

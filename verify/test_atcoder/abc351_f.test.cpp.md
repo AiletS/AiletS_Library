@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: data_structure/merge_sort_tree.hpp
     title: data_structure/merge_sort_tree.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: my_template.hpp
     title: my_template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://atcoder.jp/contests/abc351/tasks/abc351_f
@@ -90,7 +90,7 @@ data:
   path: verify/test_atcoder/abc351_f.test.cpp
   requiredBy: []
   timestamp: '2024-06-10 12:11:41+09:00'
-  verificationStatus: TEST_ACCEPTED
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: verify/test_atcoder/abc351_f.test.cpp
 layout: document

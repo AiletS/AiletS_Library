@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: verify/test_atcoder/abc356_f.test.cpp
     title: verify/test_atcoder/abc356_f.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "#line 2 \"data_structure/Coordinate_Compression.hpp\"\n\n\n// Coordinate\
@@ -45,7 +45,7 @@ data:
   path: data_structure/Coordinate_Compression.hpp
   requiredBy: []
   timestamp: '2024-06-10 11:18:41+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - verify/test_atcoder/abc356_f.test.cpp
 documentation_of: data_structure/Coordinate_Compression.hpp

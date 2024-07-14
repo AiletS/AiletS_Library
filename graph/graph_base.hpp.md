@@ -8,7 +8,7 @@ data:
   - icon: ':warning:'
     path: graph/dist_dijkstra.hpp
     title: graph/dist_dijkstra.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: graph/is_bipartite.hpp
     title: graph/is_bipartite.hpp
   - icon: ':heavy_check_mark:'
@@ -39,12 +39,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: verify/library_checker/Strongly_Connected_Components.test.cpp
     title: verify/library_checker/Strongly_Connected_Components.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: verify/test_atcoder/abc327_d.test.cpp
     title: verify/test_atcoder/abc327_d.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"graph/graph_base.hpp\"\n\ntemplate <typename T>\nstruct\
@@ -115,22 +115,22 @@ data:
   isVerificationFile: false
   path: graph/graph_base.hpp
   requiredBy:
-  - graph/is_bipartite.hpp
-  - graph/dist_dijkstra.hpp
   - graph/scc.hpp
+  - graph/is_bipartite.hpp
+  - graph/dist_bfs.hpp
   - graph/tree/EulerTour.hpp
+  - graph/tree/Rerooting_dp.hpp
   - graph/tree/CompressTree.hpp
   - graph/tree/lca.hpp
-  - graph/tree/tree_diameter.hpp
   - graph/tree/tree_base.hpp
-  - graph/tree/Rerooting_dp.hpp
-  - graph/dist_bfs.hpp
+  - graph/tree/tree_diameter.hpp
+  - graph/dist_dijkstra.hpp
   timestamp: '2024-07-07 18:01:56+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - verify/test_atcoder/abc327_d.test.cpp
   - verify/library_checker/Lowest_Common_Ancestor.test.cpp
   - verify/library_checker/Strongly_Connected_Components.test.cpp
+  - verify/test_atcoder/abc327_d.test.cpp
 documentation_of: graph/graph_base.hpp
 layout: document
 redirect_from:
