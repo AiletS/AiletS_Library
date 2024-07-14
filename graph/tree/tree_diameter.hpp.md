@@ -4,7 +4,7 @@ data:
   - icon: ':warning:'
     path: graph/dist_bfs.hpp
     title: graph/dist_bfs.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: graph/graph_base.hpp
     title: graph/graph_base.hpp
   - icon: ':warning:'

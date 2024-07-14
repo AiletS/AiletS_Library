@@ -6,12 +6,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: verify/library_checker/Static_RMQ.test.cpp
     title: verify/library_checker/Static_RMQ.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: verify/test_atcoder/abc356_f.test.cpp
     title: verify/test_atcoder/abc356_f.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"data_structure/segtree.hpp\"\n\n/*\nMonoid\u304C\u5FC5\u8981\
@@ -58,7 +58,7 @@ data:
   path: data_structure/segtree.hpp
   requiredBy: []
   timestamp: '2024-05-03 01:16:09+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - verify/library_checker/Static_RMQ.test.cpp
   - verify/test_atcoder/abc356_f.test.cpp

@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: data_structure/SparseTable.hpp
     title: data_structure/SparseTable.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: graph/graph_base.hpp
     title: graph/graph_base.hpp
   - icon: ':heavy_check_mark:'
@@ -16,7 +16,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: graph/tree/tree_base.hpp
     title: graph/tree/tree_base.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: my_template.hpp
     title: my_template.hpp
   _extendedRequiredBy: []

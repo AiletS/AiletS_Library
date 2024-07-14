@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: verify/test_atcoder/abc356_f.test.cpp
     title: verify/test_atcoder/abc356_f.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"data_structure/range_set.hpp\"\n\n\n/*\nrange_set\nrange_set<T\
@@ -123,7 +123,7 @@ data:
   path: data_structure/range_set.hpp
   requiredBy: []
   timestamp: '2024-05-03 01:16:09+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - verify/test_atcoder/abc356_f.test.cpp
 documentation_of: data_structure/range_set.hpp

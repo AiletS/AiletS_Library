@@ -6,7 +6,7 @@ data:
     - icon: ':warning:'
       path: base.cpp
       title: base.cpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: my_template.hpp
       title: my_template.hpp
   - name: data_structure
@@ -14,7 +14,7 @@ data:
     - icon: ':warning:'
       path: data_structure/CHT.hpp
       title: data_structure/CHT.hpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: data_structure/Coordinate_Compression.hpp
       title: data_structure/Coordinate_Compression.hpp
     - icon: ':heavy_check_mark:'
@@ -35,19 +35,19 @@ data:
     - icon: ':warning:'
       path: data_structure/lazy_segtree.hpp
       title: data_structure/lazy_segtree.hpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: data_structure/merge_sort_tree.hpp
       title: data_structure/merge_sort_tree.hpp
     - icon: ':warning:'
       path: data_structure/mint.hpp
       title: data_structure/mint.hpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: data_structure/range_set.hpp
       title: data_structure/range_set.hpp
     - icon: ':warning:'
       path: data_structure/rational.hpp
       title: data_structure/rational.hpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: data_structure/segtree.hpp
       title: data_structure/segtree.hpp
   - name: flow
@@ -79,10 +79,10 @@ data:
     - icon: ':warning:'
       path: graph/dist_dijkstra.hpp
       title: graph/dist_dijkstra.hpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: graph/graph_base.hpp
       title: graph/graph_base.hpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: graph/is_bipartite.hpp
       title: graph/is_bipartite.hpp
     - icon: ':warning:'
@@ -184,16 +184,16 @@ data:
       title: verify/library_checker/Unionfind.test.cpp
   - name: verify/test_atcoder
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: verify/test_atcoder/abc327_d.test.cpp
       title: verify/test_atcoder/abc327_d.test.cpp
     - icon: ':heavy_check_mark:'
       path: verify/test_atcoder/abc328_f.test.cpp
       title: verify/test_atcoder/abc328_f.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: verify/test_atcoder/abc351_f.test.cpp
       title: verify/test_atcoder/abc351_f.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: verify/test_atcoder/abc356_f.test.cpp
       title: verify/test_atcoder/abc356_f.test.cpp
 layout: toppage
